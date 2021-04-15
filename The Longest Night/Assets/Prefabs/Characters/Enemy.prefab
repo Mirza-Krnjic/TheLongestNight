@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 793598533319839617}
   - component: {fileID: 793598533319839616}
   - component: {fileID: 793598533319839619}
+  - component: {fileID: 7556104882858243413}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -238,6 +239,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   chaseRange: 13
+--- !u!114 &7556104882858243413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793598533319839618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2659834f7ff93c84fb3b4fabe212f505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!1 &1624755675750641967
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +550,7 @@ GameObject:
   - component: {fileID: 6799951074194216294}
   - component: {fileID: 124555780451738660}
   - component: {fileID: 2613741188475974856}
+  - component: {fileID: 7728092968182998283}
   m_Layer: 0
   m_Name: pointsTo (5)
   m_TagString: Untagged
@@ -619,6 +634,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7728092968182998283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644963717244300103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2659834f7ff93c84fb3b4fabe212f505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!1 &6329842509283399668
 GameObject:
   m_ObjectHideFlags: 0

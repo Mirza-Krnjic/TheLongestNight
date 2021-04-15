@@ -332,6 +332,22 @@ Transform:
   m_Father: {fileID: 400000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5985562450615050727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441218347725461546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1870e9be96b8c4e91a4cb0b9fd9340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2000000}
+  muzzleFlash: {fileID: 5993292178279423563}
+  range: 100
+  damage: 30
 --- !u!1001 &1738823709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,7 +357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4441218349396639799, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
       propertyPath: m_Name
-      value: thompson
+      value: ThompsonGun
       objectReference: {fileID: 0}
     - target: {fileID: 4443733162662555693, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
       propertyPath: m_RootOrder
@@ -401,8 +417,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
+--- !u!1 &4441218347725461546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4441218349396639799, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
+  m_PrefabInstance: {fileID: 1738823709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4443733161011816496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4443733162662555693, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
+  m_PrefabInstance: {fileID: 1738823709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5993292178279423563 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5993292176759227990, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
   m_PrefabInstance: {fileID: 1738823709}
   m_PrefabAsset: {fileID: 0}
