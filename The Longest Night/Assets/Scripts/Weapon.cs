@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -10,13 +11,30 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitImpactEffect;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 30f;
+    public Text ammoText;
+    private int ammoCount; 
+    private int ammoMaxCount = 10;
+    
+
+    private void Start()
+    {
+        ammoCount = ammoMaxCount;
+        ammoText.text = ammoCount.ToString();
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && ammoCount > 0)
         {
             Shoot();
+            AmmoSystem();
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reload();
+        }
+        
     }
 
     private void Shoot()
@@ -48,4 +66,31 @@ public class Weapon : MonoBehaviour
         GameObject impactEffect = Instantiate(hitImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactEffect, .1f);
     }
+
+    private void AmmoSystem()
+    {
+        ammoCount--;
+            ammoText.text = ammoCount.ToString();
+       
+        if(ammoCount == 0)
+        {
+            ammoText.text = "R to reload";
+        }
+
+
+    }
+
+    private void Reload()
+    {
+        StartCoroutine(ReloadCorutine(2));
+
+    }
+    IEnumerator ReloadCorutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+ 
+        ammoCount = ammoMaxCount;
+        ammoText.text = ammoCount.ToString();
+    }
+
 }
