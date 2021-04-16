@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float hitPoints= 100f;
     public void TakeDamage(float damage)
     {
+        this.GetComponent<EnemyAI>().HasRecivedDamage();
         hitPoints -= damage;
         if(hitPoints <=0)
         {

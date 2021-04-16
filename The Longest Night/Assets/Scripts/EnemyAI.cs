@@ -31,7 +31,10 @@ public class EnemyAI : MonoBehaviour
 
         }
     }
-
+    public void HasRecivedDamage()
+    {
+        isProvoked = true;
+    }
     void EngageTarget() // chase and attack
     {
         TurnTowardsTarget();
