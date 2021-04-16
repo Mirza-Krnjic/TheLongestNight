@@ -180,6 +180,8 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 13600000}
   - component: {fileID: 11400004}
+  - component: {fileID: 662658382}
+  - component: {fileID: 269848485832131040}
   m_Layer: 0
   m_Name: RigidBodyFPSController
   m_TagString: Untagged
@@ -301,6 +303,32 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+--- !u!114 &662658382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509a62673f97be44805fe26b8080e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
+--- !u!114 &269848485832131040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506c2250e2535b44b863a06da3a5eefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 0}
 --- !u!1 &51401408544756395
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 2000000}
   muzzleFlash: {fileID: 5993292178279423563}
+  hitImpactEffect: {fileID: 8651993741097153730}
   range: 100
   damage: 30
 --- !u!1001 &1738823709
@@ -415,6 +444,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8651993741740765439, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.122
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
 --- !u!1 &4441218347725461546 stripped
@@ -430,5 +463,10 @@ Transform:
 --- !u!198 &5993292178279423563 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5993292176759227990, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
+  m_PrefabInstance: {fileID: 1738823709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8651993741097153730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8651993741740731615, guid: 8a4d97c50884e7e4cb0959e0110141d6, type: 3}
   m_PrefabInstance: {fileID: 1738823709}
   m_PrefabAsset: {fileID: 0}
