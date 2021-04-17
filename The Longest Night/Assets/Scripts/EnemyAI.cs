@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
         }
     }
-    public void HasRecivedDamage()
+    public void HasRecivedDamage()//can be used later
     {
         isProvoked = true;
     }

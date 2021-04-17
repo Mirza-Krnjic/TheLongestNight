@@ -7,40 +7,59 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera playerCamera;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitImpactEffect;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 30f;
-    public Text ammoText;
-    private int ammoCount; 
-    private int ammoMaxCount = 10;
-    
+    [SerializeField] Ammo ammoSlot;
+    [SerializeField] float fireRate = 0.5f;
+    bool readyToShoot = true;
 
-    private void Start()
+
+    public Text ammoText;
+    private int ammoCount;
+
+    private void OnEnable()
     {
-        ammoCount = ammoMaxCount;
+        readyToShoot = true;
+    }
+
+    private void DisplayAmmo()
+    {
+        ammoCount = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = ammoCount.ToString();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && ammoCount > 0)
+        DisplayAmmo();
+        
+        if (Input.GetButtonDown("Fire1") && readyToShoot == true)
         {
-            Shoot();
+            StartCoroutine(Shoot());
+
             AmmoSystem();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && ammoSlot.GetCurrentAmmo(ammoType) == 0)
         {
             Reload();
         }
-        
+
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
-        PlayMuzzleFlash();
-        ProcessRaycast();
+        readyToShoot = false;
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRaycast();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
+        }
+        yield return new WaitForSeconds(fireRate);
+        readyToShoot = true;
     }
 
     private void PlayMuzzleFlash()
@@ -69,15 +88,12 @@ public class Weapon : MonoBehaviour
 
     private void AmmoSystem()
     {
-        ammoCount--;
-            ammoText.text = ammoCount.ToString();
-       
-        if(ammoCount == 0)
+        ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
+
+        if (ammoSlot.GetCurrentAmmo(ammoType) == 0)
         {
             ammoText.text = "R to reload";
         }
-
-
     }
 
     private void Reload()
@@ -88,9 +104,9 @@ public class Weapon : MonoBehaviour
     IEnumerator ReloadCorutine(float time)
     {
         yield return new WaitForSeconds(time);
- 
-        ammoCount = ammoMaxCount;
-        ammoText.text = ammoCount.ToString();
+
+        ammoSlot.ReloadCurrentAmmo(ammoType);
+        ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
     }
 
 }
