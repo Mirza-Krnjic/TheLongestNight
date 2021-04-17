@@ -16,10 +16,17 @@ public class Ammo : MonoBehaviour
     {
         return GetAmmoSlot(ammoType).ammoAmount;
     }
+
     public void ReduceCurrentAmmo(AmmoType ammoType)
     {
         GetAmmoSlot(ammoType).ammoAmount--;
     }
+    
+    public void IncraseCurrentAmmo(AmmoType ammoType, int ammoAmount)
+    {
+        GetAmmoSlot(ammoType).ammoAmount += ammoAmount;
+    }
+    
     public void ReloadCurrentAmmo(AmmoType ammoType)
     {
         GetAmmoSlot(ammoType).ammoAmount = 10;
