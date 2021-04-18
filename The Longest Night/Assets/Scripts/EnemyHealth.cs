@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] float hitPoints= 100f;
+    [SerializeField] float hitPoints = 100f;
+    bool isDead = false;
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
     public void TakeDamage(float damage)
     {
         this.GetComponent<EnemyAI>().HasRecivedDamage();
         hitPoints -= damage;
-        if(hitPoints <=0)
+        if (hitPoints <= 0)
         {
-            Destroy(gameObject);
+            EnemyDeath();
         }
+    }
+    void EnemyDeath()
+    {
+        if( isDead) return;
+        isDead= true;
+        GetComponent<Animator>().SetTrigger("die");
     }
 }
