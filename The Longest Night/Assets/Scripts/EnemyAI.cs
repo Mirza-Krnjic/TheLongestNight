@@ -10,28 +10,45 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
+    EnemyHealth enemyHealth;
+    CapsuleCollider zCollider;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        zCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance(target.position, transform.position);
-
-        if (isProvoked)
+        if (enemyHealth.IsDead())
         {
-            EngageTarget();
+
+            this.enabled = false;
+            navMeshAgent.enabled = false;
+            
+            zCollider.enabled = false;
         }
-        else if (distanceToTarget <= chaseRange)// if enemy sees d player
+        else
         {
-            isProvoked = true;
+            distanceToTarget = Vector3.Distance(target.position, transform.position); //calcs the distance between enemy & target
 
+            if (isProvoked)
+            {
+                EngageTarget();
+            }
+            else if (distanceToTarget <= chaseRange)
+            {
+                isProvoked = true;
+            }
         }
     }
-
+    public void HasRecivedDamage()//can be used later
+    {
+        isProvoked = true;
+    }
     void EngageTarget() // chase and attack
     {
         TurnTowardsTarget();
