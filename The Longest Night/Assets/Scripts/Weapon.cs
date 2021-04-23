@@ -15,6 +15,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] Ammo ammoSlot;
     [SerializeField] float fireRate = 0.5f;
     bool readyToShoot = true;
+    Animator anim;
+    bool isAimed;
+    [SerializeField] Canvas canvasToDisabe;
+    [SerializeField] AudioSource shootSound;
+    [SerializeField] AudioSource reloadSound;
 
 
     public Text ammoText;
@@ -23,6 +28,8 @@ public class Weapon : MonoBehaviour
     private void OnEnable()
     {
         readyToShoot = true;
+        anim = GetComponent<Animator>();
+        isAimed = false;
     }
 
     private void DisplayAmmo()
@@ -34,18 +41,47 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         DisplayAmmo();
-        
+        AmmoSystem();
         if (Input.GetButtonDown("Fire1") && readyToShoot == true)
         {
             StartCoroutine(Shoot());
 
-            AmmoSystem();
+
         }
 
         if (Input.GetKey(KeyCode.R) && ammoSlot.GetCurrentAmmo(ammoType) == 0)
         {
+            anim.SetBool("reloading", true);
             Reload();
+            //anim.SetBool("reloading", false);
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (isAimed == false)
+            {
+                isAimed = true;
+                anim.SetBool("AIM", true);
+                canvasToDisabe.enabled = false;
+            }
+            else
+            {
+                isAimed = false;
+                anim.SetBool("AIM", false);
+                canvasToDisabe.enabled = true;
+            }
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("running", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+            anim.SetBool("running", false);
+
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
+            anim.SetBool("walking", true);
+        else
+            anim.SetBool("walking", false);
 
     }
 
@@ -55,11 +91,14 @@ public class Weapon : MonoBehaviour
         if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
+            shootSound.Play();
             ProcessRaycast();
             ammoSlot.ReduceCurrentAmmo(ammoType);
+            anim.SetBool("FIRE", true);
         }
         yield return new WaitForSeconds(fireRate);
         readyToShoot = true;
+        anim.SetBool("FIRE", false);
     }
 
     private void PlayMuzzleFlash()
@@ -98,15 +137,19 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        StartCoroutine(ReloadCorutine(2));
+        reloadSound.Play();
+        StartCoroutine(ReloadCorutine(4));
+
 
     }
     IEnumerator ReloadCorutine(float time)
     {
         yield return new WaitForSeconds(time);
 
+
         ammoSlot.ReloadCurrentAmmo(ammoType);
         ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
+        anim.SetBool("reloading", false);
     }
 
 }
