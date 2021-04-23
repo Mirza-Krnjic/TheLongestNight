@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16705295, g: 0.15402403, b: 0.14307773, a: 1}
+  m_IndirectSpecularColor: {r: 0.16705292, g: 0.15402403, b: 0.14307773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,67 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: bb3da59c0f4ca4343bb5020c69d9e12d, type: 2}
---- !u!1001 &122384833
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 103.081566
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 50.296947
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 82.87012
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.022704253
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9997422
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 182.602
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144040, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1187206745860144046, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_Name
-      value: Enemy 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4647632658852769372, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 85d8f98418be7d14fa8551a636a727c5, type: 3}
 --- !u!1 &428183596
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +554,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &838798623
 GameObject:
@@ -886,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6770018047573027577, guid: 50a7e4ac78c2ebb4cb7ffcc141884c73, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6770018047573027577, guid: 50a7e4ac78c2ebb4cb7ffcc141884c73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2137,7 +2076,7 @@ Transform:
   - {fileID: 838798624}
   - {fileID: 1573587486}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1619722233
 Mesh:
