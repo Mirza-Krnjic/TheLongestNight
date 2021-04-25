@@ -14,31 +14,48 @@ public class LightSettingsSelector : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (SaveScript.batteryPower > 0.0f)
         {
-            if (NightvisionIsActive == false)
+            if (Input.GetKeyDown(KeyCode.N))
             {
-                ppVolume.profile = Nightvision;
-                NightvisionIsActive = true;
+                if (NightvisionIsActive == false)
+                {
+                    ppVolume.profile = Nightvision;
+                    NightvisionIsActive = true;
+                    SaveScript.nightVisionIsOn = true;
+                }
+                else
+                {
+                    ppVolume.profile = Standard;
+                    NightvisionIsActive = false;
+                    SaveScript.nightVisionIsOn = false;
+                }
             }
-            else
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                ppVolume.profile = Standard;
-                NightvisionIsActive = false;
+                if (spotlightIsActive == false)
+                {
+                    spotlight.enabled = true;
+                    spotlightIsActive = true;
+                    SaveScript.flashLightIsOn = true;
+                }
+                else
+                {
+                    spotlight.enabled = false;
+                    spotlightIsActive = false;
+                    SaveScript.flashLightIsOn = false;
+                }
             }
         }
-        if (Input.GetKeyDown(KeyCode.T))
+
+        if (SaveScript.batteryPower <= 0.0f)
         {
-            if (spotlightIsActive == false)
-            {
-                spotlight.enabled = true;
-                spotlightIsActive = true;
-            }
-            else
-            {
-                spotlight.enabled = false;
-                spotlightIsActive = false;
-            }
+            ppVolume.profile = Standard;
+            NightvisionIsActive = false;
+            SaveScript.nightVisionIsOn = false;
+            spotlight.enabled = false;
+            spotlightIsActive = false;
+            SaveScript.flashLightIsOn = false;
         }
     }
 }
