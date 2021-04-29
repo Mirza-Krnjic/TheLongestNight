@@ -12,6 +12,12 @@ ModelImporter:
   - first:
       74: 5894491979384236916
     second: fire
+  - first:
+      74: 414218459308361012
+    second: AKfire
+  - first:
+      74: -6092398993556595077
+    second: AKreload
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -70,7 +76,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: reload
+      name: AKreload
       takeName: CINEMA_4D_Main
       internalID: 0
       firstFrame: 8
@@ -99,7 +105,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: fire
+      name: AKfire
       takeName: CINEMA_4D_Main
       internalID: 0
       firstFrame: 0
@@ -110,7 +116,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

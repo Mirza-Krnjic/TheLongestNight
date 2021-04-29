@@ -1,0 +1,7 @@
+–  All assets are set up and ready to be used in game. You can find them in the folder "Prefabs".  Hold the prefab and drag it to Hierarchy or Scene. 
+
+– Prefabs with the prefix "PC" are set up to Desktop Computers and Consoles. They are set up for best quality and designed to work's with Linear space (You can change it in: Edit> Project Settings> Player> Rendering> Color Space*).
+
+– Prefabs with the prefix "Mob" are set up to Mobile Devices. They are set up for best performance and designed to work's with Gamma space (You can change it in: Edit> Project Settings> Player> Rendering> Color Space*).
+
+Email: CGunwale@gmail.com

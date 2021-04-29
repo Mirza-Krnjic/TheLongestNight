@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Medkit
   - Battery
+  - BaseballBat
+  - Axe
+  - Knife
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
+  - Weapons
   - 
   - 
   - 

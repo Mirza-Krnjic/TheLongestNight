@@ -29,6 +29,7 @@ public class Weapon : MonoBehaviour
     {
         readyToShoot = true;
         anim = GetComponent<Animator>();
+        anim.SetBool("reloading", false);
         isAimed = false;
     }
 
@@ -51,9 +52,14 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) && ammoSlot.GetCurrentAmmo(ammoType) == 0)
         {
-            anim.SetBool("reloading", true);
-            Reload();
-            //anim.SetBool("reloading", false);
+            if ((anim.GetBool("running") == false && anim.GetBool("walking") == true) || anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            {
+                anim.SetBool("reloading", false);
+                anim.SetTrigger("ReloadTrigger");
+
+                Reload();
+
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -80,6 +86,8 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
             anim.SetBool("walking", true);
+        else if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") < 0)
+            anim.SetBool("walking", true);
         else
             anim.SetBool("walking", false);
 
@@ -94,7 +102,8 @@ public class Weapon : MonoBehaviour
             shootSound.Play();
             ProcessRaycast();
             ammoSlot.ReduceCurrentAmmo(ammoType);
-            anim.SetBool("FIRE", true);
+            //anim.SetBool("FIRE", true);
+            anim.SetTrigger("ShootTrigger");
         }
         yield return new WaitForSeconds(fireRate);
         readyToShoot = true;
@@ -132,13 +141,14 @@ public class Weapon : MonoBehaviour
         if (ammoSlot.GetCurrentAmmo(ammoType) == 0)
         {
             ammoText.text = "R to reload";
+
         }
     }
 
     private void Reload()
     {
         reloadSound.Play();
-        StartCoroutine(ReloadCorutine(4));
+        StartCoroutine(ReloadCorutine(3.2f));
 
 
     }
@@ -146,10 +156,9 @@ public class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-
+        anim.SetBool("reloading", true);
         ammoSlot.ReloadCurrentAmmo(ammoType);
         ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
-        anim.SetBool("reloading", false);
     }
 
 }
