@@ -77,7 +77,7 @@ public class Weapon : MonoBehaviour
                 canvasToDisabe.enabled = true;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
             anim.SetBool("running", true);
         }
