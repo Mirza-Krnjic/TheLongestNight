@@ -6,62 +6,92 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Camera playerCamera;
+    //Gun stats
+    [SerializeField] float damage = 30f;
+    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public int magazineSize, bulletsPerTap;
+    public bool allowButtonHold;
+    int bulletsLeft, bulletsShot;
     [SerializeField] AmmoType ammoType;
+    [SerializeField] Ammo ammoSlot;
+
+    //BOOLs
+    bool shooting, readyToShoot, reloading;
+    bool isAimed;
+
+    //Reference
+    [SerializeField] Camera playerCamera;
+    public RaycastHit rayHit;
+    public LayerMask whatIsEnemy;
+
+    //Graphics
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitImpactEffect;
-    [SerializeField] float range = 100f;
-    [SerializeField] float damage = 30f;
-    [SerializeField] Ammo ammoSlot;
-    [SerializeField] float fireRate = 0.5f;
-    bool readyToShoot = true;
-    Animator anim;
-    bool isAimed;
     [SerializeField] Canvas canvasToDisabe;
+
+    //sound, UI
+    Animator anim;
+    public Text ammoText;
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
 
-
-    public Text ammoText;
-    private int ammoCount;
-
-    private void OnEnable()
+    private void Awake()
     {
+        bulletsLeft = magazineSize;
         readyToShoot = true;
         anim = GetComponent<Animator>();
         anim.SetBool("reloading", false);
         isAimed = false;
+        reloading = false;
     }
 
     private void DisplayAmmo()
     {
-        ammoCount = ammoSlot.GetCurrentAmmo(ammoType);
-        ammoText.text = ammoCount.ToString();
+        //bulletsLeft = ammoSlot.GetCurrentAmmo(ammoType);
+        ammoText.text = bulletsLeft.ToString();
     }
 
     void Update()
     {
+        MyInput();
+
         DisplayAmmo();
-        AmmoSystem();
-        if (Input.GetButtonDown("Fire1") && readyToShoot == true)
+
+        WeaponAnimHandler();
+    }
+
+    void WeaponAnimHandler()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-            StartCoroutine(Shoot());
+            anim.SetBool("running", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+            anim.SetBool("running", false);
 
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
+            anim.SetBool("walking", true);
+        else if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") < 0)
+            anim.SetBool("walking", true);
+        else
+            anim.SetBool("walking", false);
+    }
 
+    private void MyInput()
+    {
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+
+        //Shoot
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
+            bulletsShot = bulletsPerTap;
+            Shoot();
         }
 
-        if (Input.GetKey(KeyCode.R) && ammoSlot.GetCurrentAmmo(ammoType) == 0)
-        {
-            if ((anim.GetBool("running") == false && anim.GetBool("walking") == true) || anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
-            {
-                anim.SetBool("reloading", false);
-                anim.SetTrigger("ReloadTrigger");
-
-                Reload();
-
-            }
-        }
-
+        //Handels aiming
         if (Input.GetMouseButtonDown(1))
         {
             if (isAimed == false)
@@ -77,55 +107,59 @@ public class Weapon : MonoBehaviour
                 canvasToDisabe.enabled = true;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
-        {
-            anim.SetBool("running", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-            anim.SetBool("running", false);
-
-        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
-            anim.SetBool("walking", true);
-        else if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") < 0)
-            anim.SetBool("walking", true);
-        else
-            anim.SetBool("walking", false);
-
     }
-
-    IEnumerator Shoot()
+    private void Shoot()
     {
+        PlayMuzzleFlash();
+        shootSound.Play();
+        anim.SetTrigger("ShootTrigger");
         readyToShoot = false;
-        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
+
+
+        //Spread
+        float x = UnityEngine.Random.Range(-spread, spread);
+        float y = UnityEngine.Random.Range(-spread, spread);
+
+        if (isAimed)
         {
-            PlayMuzzleFlash();
-            shootSound.Play();
-            ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo(ammoType);
-            //anim.SetBool("FIRE", true);
-            anim.SetTrigger("ShootTrigger");
+            x = 0f;
+            y = 0f;
         }
-        yield return new WaitForSeconds(fireRate);
-        readyToShoot = true;
-        anim.SetBool("FIRE", false);
+
+
+        //Calculate Direction with Spread
+        Vector3 direction = playerCamera.transform.forward + new Vector3(x, y, 0);
+
+        //RayCast
+        if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
+        {
+            Debug.Log(rayHit.collider.name);
+            CreateImpactExploation(rayHit);
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                EnemyHealth target = rayHit.transform.GetComponent<EnemyHealth>();
+                target.TakeDamage(damage);
+            }
+        }
+        else if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range))
+            CreateImpactExploation(rayHit);
+
+        //ShakeCamera
+        //camShake.Shake(camShakeDuration, camShakeMagnitude);
+        //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
+
+        bulletsLeft--;
+        bulletsShot--;
+
+        Invoke("ResetShot", timeBetweenShooting);
+
+        if (bulletsShot > 0 && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweenShots);
     }
 
     private void PlayMuzzleFlash()
     {
         muzzleFlash.Play();
-    }
-
-    private void ProcessRaycast()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
-        {
-            CreateImpactExploation(hit);
-            EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
-            if (target == null) return; //if you hit smtn other than d enemy
-            target.TakeDamage(damage);
-        }
-        else { return; }
     }
 
     private void CreateImpactExploation(RaycastHit hit)
@@ -148,17 +182,26 @@ public class Weapon : MonoBehaviour
     private void Reload()
     {
         reloadSound.Play();
-        StartCoroutine(ReloadCorutine(3.2f));
 
+        reloading = true;
+        //anim.SetBool("reloading", true);
+        anim.SetTrigger("ReloadTrigger");
 
+        Invoke("ReloadFinished", reloadTime);
     }
-    IEnumerator ReloadCorutine(float time)
+
+    private void ReloadFinished()
     {
-        yield return new WaitForSeconds(time);
-
-        anim.SetBool("reloading", true);
+        bulletsLeft = magazineSize;
+        reloading = false;
         ammoSlot.ReloadCurrentAmmo(ammoType);
-        ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
+
+        //anim.SetBool("reloading", false);
+        //anim.ResetTrigger("ReloadTrigger");
     }
 
+    private void ResetShot()
+    {
+        readyToShoot = true;
+    }
 }

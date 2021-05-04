@@ -9,6 +9,7 @@ TagManager:
   - BaseballBat
   - Axe
   - Knife
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - PostProcessing
   - Weapons
-  - 
+  - Enemy
   - 
   - 
   - 
