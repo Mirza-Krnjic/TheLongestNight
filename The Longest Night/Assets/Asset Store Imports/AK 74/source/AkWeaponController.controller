@@ -117,9 +117,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: AIM
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: ShootTrigger
     m_EventTreshold: 0
@@ -413,7 +410,6 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4752209740697724683}
-  - {fileID: -1872782329155495127}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1316,9 +1312,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -5891771538295923480}
     m_Position: {x: 660, y: 100, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 8917432103227332724}
-    m_Position: {x: 613.54297, y: -60.48192, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1981,6 +1974,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: ReloadTrigger
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: AIM
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8051999184441322086}

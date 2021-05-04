@@ -27,13 +27,14 @@ public class Weapon : MonoBehaviour
     //Graphics
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitImpactEffect;
-    [SerializeField] Canvas canvasToDisabe;
+
 
     //sound, UI
     Animator anim;
     public Text ammoText;
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
+    [SerializeField] Canvas canvasToDisabe;
 
     private void Awake()
     {
@@ -49,6 +50,11 @@ public class Weapon : MonoBehaviour
     {
         //bulletsLeft = ammoSlot.GetCurrentAmmo(ammoType);
         ammoText.text = bulletsLeft.ToString();
+
+        if (bulletsLeft == 0)
+        {
+            ammoText.text = "R to reload";
+        }
     }
 
     void Update()
@@ -88,6 +94,11 @@ public class Weapon : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = bulletsPerTap;
+
+            PlayMuzzleFlash();
+            shootSound.Play();
+            anim.SetTrigger("ShootTrigger");
+
             Shoot();
         }
 
@@ -110,9 +121,7 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
-        PlayMuzzleFlash();
-        shootSound.Play();
-        anim.SetTrigger("ShootTrigger");
+
         readyToShoot = false;
 
 
@@ -155,6 +164,9 @@ public class Weapon : MonoBehaviour
 
         if (bulletsShot > 0 && bulletsLeft > 0)
             Invoke("Shoot", timeBetweenShots);
+
+
+
     }
 
     private void PlayMuzzleFlash()
@@ -168,16 +180,7 @@ public class Weapon : MonoBehaviour
         Destroy(impactEffect, .1f);
     }
 
-    private void AmmoSystem()
-    {
-        ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
 
-        if (ammoSlot.GetCurrentAmmo(ammoType) == 0)
-        {
-            ammoText.text = "R to reload";
-
-        }
-    }
 
     private void Reload()
     {

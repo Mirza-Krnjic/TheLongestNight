@@ -422,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 2253797332338618432, guid: d8a588652a57ac9468dbe00be33a62b9, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 2253797332338618433, guid: d8a588652a57ac9468dbe00be33a62b9, type: 3}
       propertyPath: m_Name
       value: 'Enemy Jill '
@@ -1404,7 +1404,7 @@ PrefabInstance:
     - target: {fileID: 8785681267349078518, guid: 9e03f0d9644576646b84f1e81247ac0e, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 8785681267349078519, guid: 9e03f0d9644576646b84f1e81247ac0e, type: 3}
       propertyPath: m_Name
       value: Enemy Doctor
@@ -1701,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: 8454409253238969362, guid: 39f7112d69882b5418f287dc1f623c24, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 8454409253238969363, guid: 39f7112d69882b5418f287dc1f623c24, type: 3}
       propertyPath: m_Name
       value: Enemy Super Heavy
@@ -1981,6 +1981,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454409253238969365, guid: 39f7112d69882b5418f287dc1f623c24, type: 3}
   m_PrefabInstance: {fileID: 171757960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &446188246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3036695164987916434, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+  m_PrefabInstance: {fileID: 3038609610451448213}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &446720697 stripped
 GameObject:
@@ -2660,7 +2665,7 @@ PrefabInstance:
     - target: {fileID: 6500006539466745397, guid: 1774ac426acb9fd49b754d98ee13e756, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 6668027036896350585, guid: 1774ac426acb9fd49b754d98ee13e756, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -3032,7 +3037,7 @@ PrefabInstance:
     - target: {fileID: 6700941716115556930, guid: c2cf83b4b443058449519b5b5df1744c, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 6700941716115556931, guid: c2cf83b4b443058449519b5b5df1744c, type: 3}
       propertyPath: m_Name
       value: Enemy Tank
@@ -3988,7 +3993,7 @@ PrefabInstance:
     - target: {fileID: 5123679330037916687, guid: e7bdc7730f3189840aa7b5e3c9cee8cf, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 5325043879137163548, guid: e7bdc7730f3189840aa7b5e3c9cee8cf, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -4141,7 +4146,7 @@ PrefabInstance:
     - target: {fileID: 793598533319839619, guid: b6a49d37c2755ac4984c55d5feab4c43, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 793598533319839619, guid: b6a49d37c2755ac4984c55d5feab4c43, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4531,10 +4536,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3038609608678018620, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 213931354}
+    - target: {fileID: 3038609608678018620, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: canvasToDisabe
+      value: 
+      objectReference: {fileID: 80198604}
+    - target: {fileID: 3038609609871652400, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 213931354}
+    - target: {fileID: 3038609609871652400, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: canvasToDisabe
+      value: 
+      objectReference: {fileID: 80198604}
     - target: {fileID: 3039223060290853304, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5148503208038014544, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 213931354}
+    - target: {fileID: 5148503208038014544, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
+      propertyPath: canvasToDisabe
+      value: 
+      objectReference: {fileID: 80198604}
     - target: {fileID: 5465428472206199260, guid: 2c87621537f40e04987edbe9cdf21607, type: 3}
       propertyPath: ammoText
       value: 
@@ -4720,7 +4749,7 @@ PrefabInstance:
     - target: {fileID: 4405521945362825586, guid: dd300ff9e8dd20146b03a58eeee6829c, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446188246}
     - target: {fileID: 4405521945362825587, guid: dd300ff9e8dd20146b03a58eeee6829c, type: 3}
       propertyPath: m_Name
       value: 'Enemy Regular '
@@ -4988,7 +5017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6770018048764370103, guid: 50a7e4ac78c2ebb4cb7ffcc141884c73, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50a7e4ac78c2ebb4cb7ffcc141884c73, type: 3}
