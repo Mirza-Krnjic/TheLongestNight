@@ -34,7 +34,8 @@ public class Weapon : MonoBehaviour
     public Text ammoText;
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
-    [SerializeField] Canvas canvasToDisabe;
+    //[SerializeField] Canvas canvasToDisabe;
+
 
     private void Awake()
     {
@@ -48,8 +49,9 @@ public class Weapon : MonoBehaviour
 
     private void DisplayAmmo()
     {
-        //bulletsLeft = ammoSlot.GetCurrentAmmo(ammoType);
-        ammoText.text = bulletsLeft.ToString();
+        //text.SetText(bulletsLeft + " / " + magazineSize);
+        // ammoText.text = bulletsLeft.ToString();
+        ammoText.text = (bulletsLeft.ToString() + "/" + ammoSlot.GetCurrentAmmo(ammoType));
 
         if (bulletsLeft == 0)
         {
@@ -72,7 +74,7 @@ public class Weapon : MonoBehaviour
         {
             anim.SetBool("running", true);
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
             anim.SetBool("running", false);
 
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
@@ -109,13 +111,15 @@ public class Weapon : MonoBehaviour
             {
                 isAimed = true;
                 anim.SetBool("AIM", true);
-                canvasToDisabe.enabled = false;
+                //GetComponentInParent<FirstPersonAIO>().playerCanMove = false;
+                //canvasToDisabe.enabled = false;
             }
             else
             {
                 isAimed = false;
                 anim.SetBool("AIM", false);
-                canvasToDisabe.enabled = true;
+                //GetComponentInParent<FirstPersonAIO>().playerCanMove = true;
+                // canvasToDisabe.enabled = true;
             }
         }
     }
@@ -158,14 +162,18 @@ public class Weapon : MonoBehaviour
         //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
 
         bulletsLeft--;
-        bulletsShot--;
+        bulletsShot--; //bulletspertap
 
         Invoke("ResetShot", timeBetweenShooting);
 
-        if (bulletsShot > 0 && bulletsLeft > 0)
+        //if (bulletsShot > 0 && bulletsLeft > 0)
+        //   Invoke("Shoot", timeBetweenShots);
+
+        if (bulletsShot > 0)
+        {
             Invoke("Shoot", timeBetweenShots);
-
-
+            bulletsLeft++;
+        }
 
     }
 
@@ -184,10 +192,12 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
+        if (ammoSlot.GetCurrentAmmo(ammoType) == 0f) return;
+
         reloadSound.Play();
 
         reloading = true;
-        //anim.SetBool("reloading", true);
+
         anim.SetTrigger("ReloadTrigger");
 
         Invoke("ReloadFinished", reloadTime);
@@ -195,12 +205,39 @@ public class Weapon : MonoBehaviour
 
     private void ReloadFinished()
     {
-        bulletsLeft = magazineSize;
-        reloading = false;
-        ammoSlot.ReloadCurrentAmmo(ammoType);
+        int remainingAmmo = ammoSlot.GetCurrentAmmo(ammoType);
+        if (ammoSlot.GetCurrentAmmo(ammoType) == 0f) return;
 
-        //anim.SetBool("reloading", false);
-        //anim.ResetTrigger("ReloadTrigger");
+        else if (bulletsLeft > 0)
+        {
+            ammoSlot.IncraseCurrentAmmo(ammoType, bulletsLeft); //incrase total ammo from clip
+            bulletsLeft = 0; // null the clip
+            if (ammoSlot.GetCurrentAmmo(ammoType) >= magazineSize) // if can fit MAG
+            {
+                ammoSlot.ReduceCurrentAmmo(ammoType, magazineSize);
+                bulletsLeft = magazineSize;
+            }
+            else
+            {
+                bulletsLeft = ammoSlot.GetCurrentAmmo(ammoType);
+                ammoSlot.ReduceCurrentAmmo(ammoType, remainingAmmo);
+            }
+        }
+        else if (bulletsLeft == 0)
+        {
+            if (ammoSlot.GetCurrentAmmo(ammoType) >= magazineSize) // if can fit MAG
+            {
+                ammoSlot.ReduceCurrentAmmo(ammoType, magazineSize);
+                bulletsLeft = magazineSize;
+            }
+            else
+            {
+                bulletsLeft = ammoSlot.GetCurrentAmmo(ammoType);
+                ammoSlot.ReduceCurrentAmmo(ammoType, remainingAmmo);
+            }
+        }
+
+        reloading = false;
     }
 
     private void ResetShot()

@@ -9,7 +9,17 @@ public class Ammo : MonoBehaviour
     {
         public AmmoType ammoType;
         public int ammoAmount;
+        public int maxAmount;
+
+        void Update()
+        {
+            if (ammoAmount < 0)
+                ammoAmount = 0;
+            if (ammoAmount > maxAmount)
+                ammoAmount = maxAmount;
+        }
     }
+
 
 
     public int GetCurrentAmmo(AmmoType ammoType)
@@ -17,16 +27,16 @@ public class Ammo : MonoBehaviour
         return GetAmmoSlot(ammoType).ammoAmount;
     }
 
-    public void ReduceCurrentAmmo(AmmoType ammoType)
+    public void ReduceCurrentAmmo(AmmoType ammoType, int reduceAmount)
     {
-        GetAmmoSlot(ammoType).ammoAmount--;
+        GetAmmoSlot(ammoType).ammoAmount -= reduceAmount;
     }
-    
+
     public void IncraseCurrentAmmo(AmmoType ammoType, int ammoAmount)
     {
         GetAmmoSlot(ammoType).ammoAmount += ammoAmount;
     }
-    
+
     public void ReloadCurrentAmmo(AmmoType ammoType)
     {
         GetAmmoSlot(ammoType).ammoAmount = 10;

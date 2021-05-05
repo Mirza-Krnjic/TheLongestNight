@@ -298,9 +298,9 @@ public class FirstPersonAIO : MonoBehaviour {
                 StaminaMeterBG.rectTransform.anchorMax = new Vector2(0.5f,0);
                 StaminaMeterBG.rectTransform.anchorMin = new Vector2(0.5f,0);
                 StaminaMeterBG.rectTransform.anchoredPosition = new Vector2(0,15);
-                StaminaMeterBG.rectTransform.sizeDelta = new Vector2(250,6);
+                StaminaMeterBG.rectTransform.sizeDelta = new Vector2(209,2.5f);    //
                 StaminaMeterBG.color = new Color(0,0,0,0);
-                StaminaMeter.rectTransform.sizeDelta = new Vector2(250,6);
+                StaminaMeter.rectTransform.sizeDelta = new Vector2(209,2.5f);     //
                 StaminaMeter.color = new Color(0,0,0,0);
             }
         }
@@ -395,7 +395,7 @@ public class FirstPersonAIO : MonoBehaviour {
         #region Movement Settings - FixedUpdate
         
         if(useStamina){
-            isSprinting = Input.GetKey(sprintKey) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
+            isSprinting = Input.GetKey(sprintKey) && Input.GetKey(KeyCode.W) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
             if(isSprinting){
                 staminaInternal -= (staminaDepletionSpeed*2)*Time.deltaTime;
                 if(drawStaminaMeter){

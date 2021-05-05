@@ -5205,11 +5205,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoSlots:
   - ammoType: 0
-    ammoAmount: 12
+    ammoAmount: 40
+    maxAmount: 120
   - ammoType: 1
-    ammoAmount: 5
+    ammoAmount: 14
+    maxAmount: 28
   - ammoType: 2
-    ammoAmount: 30
+    ammoAmount: 50
+    maxAmount: 100
+  - ammoType: 3
+    ammoAmount: 10
+    maxAmount: 30
+  - ammoType: 4
+    ammoAmount: 60
+    maxAmount: 60
 --- !u!1 &3039732888839691464
 GameObject:
   m_ObjectHideFlags: 0
@@ -15065,6 +15074,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3038609608678018617}
     - target: {fileID: 3217006426101097811, guid: f6eba554d698a344f976d145504a3e13, type: 3}
+      propertyPath: magazineSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217006426101097811, guid: f6eba554d698a344f976d145504a3e13, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1717860838608101821}
@@ -16184,9 +16197,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5801551521755853032, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
+      propertyPath: ammoType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801551521755853032, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 8177302407301361705}
+    - target: {fileID: 5801551521755853032, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
+      propertyPath: magazineSize
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5801551521755853032, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
       propertyPath: playerCamera
       value: 
@@ -16199,6 +16220,10 @@ PrefabInstance:
       propertyPath: hitImpactEffect
       value: 
       objectReference: {fileID: 7972919850261769495}
+    - target: {fileID: 5801551521755853035, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6ea6d9d21c9337b4787383f88306b723, type: 2}
     - target: {fileID: 6271817880937155472, guid: ed00419d526ac5243b72e0a2fc583ece, type: 3}
       propertyPath: m_RootOrder
       value: 4
