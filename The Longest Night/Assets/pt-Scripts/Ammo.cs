@@ -13,10 +13,12 @@ public class Ammo : MonoBehaviour
 
         void Update()
         {
-            if (ammoAmount < 0)
-                ammoAmount = 0;
-            if (ammoAmount > maxAmount)
-                ammoAmount = maxAmount;
+            
+        }
+
+        int getMaxAmount()
+        {
+            return maxAmount;
         }
     }
 
@@ -36,6 +38,11 @@ public class Ammo : MonoBehaviour
     {
         GetAmmoSlot(ammoType).ammoAmount += ammoAmount;
     }
+    public void MaxoutCurrentAmmo(AmmoType ammoType)
+    {
+        GetAmmoSlot(ammoType).ammoAmount = GetAmmoSlot(ammoType).maxAmount;
+    }
+
 
     public void ReloadCurrentAmmo(AmmoType ammoType)
     {

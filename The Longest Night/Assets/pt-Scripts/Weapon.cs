@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] GameObject inventoryPanel;
     //Gun stats
     [SerializeField] float damage = 30f;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
@@ -16,8 +17,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] Ammo ammoSlot;
 
     //BOOLs
-    bool shooting, readyToShoot, reloading;
+    bool shooting, reloading;
     bool isAimed;
+    public bool readyToShoot = true;
 
     //Reference
     [SerializeField] Camera playerCamera;
@@ -61,7 +63,8 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        MyInput();
+        if (!inventoryPanel.gameObject.activeSelf) //if inventory is not acttive
+            MyInput();
 
         DisplayAmmo();
 
@@ -243,5 +246,13 @@ public class Weapon : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
+    }
+    public AmmoType getAmmoType()
+    {
+        return ammoType;
+    }
+    public Ammo getAmmoSlot()
+    {
+        return ammoSlot;
     }
 }

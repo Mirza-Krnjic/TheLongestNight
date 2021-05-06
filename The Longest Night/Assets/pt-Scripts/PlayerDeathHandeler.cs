@@ -14,6 +14,6 @@ public class PlayerDeathHandeler : MonoBehaviour
         gameOverCanvas.enabled = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+       // Cursor.visible = true;
     }
 }

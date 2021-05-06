@@ -7,33 +7,32 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject InventoryPanel;
 
-    //Medkits
-    [SerializeField] GameObject medkitImage1;
-    [SerializeField] GameObject medkitButton1;
-    [SerializeField] GameObject medkitImage2;
-    [SerializeField] GameObject medkitButton2;
-    [SerializeField] GameObject medkitImage3;
-    [SerializeField] GameObject medkitButton3;
-    [SerializeField] GameObject medkitImage4;
-    [SerializeField] GameObject medkitButton4;
+    //WEAPON INVENTORY
+    private int numberOfWeapons; //can potentialy add to med, ammom, btry
+    private GameObject[] weaponSlots;
+    public GameObject weaponSlotHolder;
 
-    //Batteries
-    [SerializeField] GameObject batteryImage1;
-    [SerializeField] GameObject batteryButton1;
-    [SerializeField] GameObject batteryImage2;
-    [SerializeField] GameObject batteryButton2;
-    [SerializeField] GameObject batteryImage3;
-    [SerializeField] GameObject batteryButton3;
-    [SerializeField] GameObject batteryImage4;
-    [SerializeField] GameObject batteryButton4;
-    [SerializeField] GameObject batteryImage5;
-    [SerializeField] GameObject batteryButton5;
+    //MEDKIT INVENTORY
+    private GameObject[] medkitSlots;
+    public GameObject medkitPanel;
 
+    //BATTERY INVENTORY
+    private GameObject[] batterySlots;
+    public GameObject batteryPanel;
+
+    //AMMOBOX INVENTORY
+    private GameObject[] ammoBoxSlots;
+    public GameObject ammoBoxPanel;
 
     [SerializeField] GameObject batteryForeground;
     float batteryFillAmount;
+
+    //number of items
     int numberOfBatteries;
     int numberOfMedkits;
+    int numberOfAmmoboxes;
+
+    //audio
     private AudioSource audioPlayer;
     [SerializeField] AudioClip medkitPickupSound;
     [SerializeField] AudioClip BatteryPickupSound;
@@ -42,32 +41,18 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+
         audioPlayer = GetComponent<AudioSource>();
         Cursor.visible = false;
         inventoryPanelIsActive = false;
         InventoryPanel.gameObject.SetActive(false);
-
-        medkitImage1.gameObject.SetActive(false);
-        medkitButton1.gameObject.SetActive(false);
-        medkitImage2.gameObject.SetActive(false);
-        medkitButton2.gameObject.SetActive(false);
-        medkitImage3.gameObject.SetActive(false);
-        medkitButton3.gameObject.SetActive(false);
-        medkitImage4.gameObject.SetActive(false);
-        medkitButton4.gameObject.SetActive(false);
-
-        batteryImage1.gameObject.SetActive(false);
-        batteryButton1.gameObject.SetActive(false);
-        batteryImage2.gameObject.SetActive(false);
-        batteryButton2.gameObject.SetActive(false);
-        batteryImage3.gameObject.SetActive(false);
-        batteryButton3.gameObject.SetActive(false);
-        batteryImage4.gameObject.SetActive(false);
-        batteryButton4.gameObject.SetActive(false);
-        batteryImage5.gameObject.SetActive(false);
-        batteryButton5.gameObject.SetActive(false);
-
         batteryFillAmount = batteryForeground.gameObject.GetComponent<Image>().fillAmount;
+
+        initWeapons();
+        initMedkits();
+        initBatteries();
+        initAmmobox();
+
     }
     private void Update()
     {
@@ -75,176 +60,151 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryPanelIsActive == false)
             {
+                Time.timeScale = 0f;
                 inventoryPanelIsActive = true;
                 InventoryPanel.gameObject.SetActive(true);
                 Cursor.visible = true;
-                Time.timeScale = 0f;
             }
             else if (inventoryPanelIsActive == true)
             {
+                Time.timeScale = 1f;
                 inventoryPanelIsActive = false;
                 InventoryPanel.gameObject.SetActive(false);
                 Cursor.visible = false;
-                Time.timeScale = 1f;
             }
         }
 
         CheckInventory();
     }
 
-    void CheckInventory() //displays certian items in certian position i avaible
+    void enableMedkits(int index)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (i < index)
+                medkitSlots[i].gameObject.SetActive(true);
+            else
+                medkitSlots[i].gameObject.SetActive(false);
+        }
+    }
+    void enableBatteries(int index)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < index)
+                batterySlots[i].gameObject.SetActive(true);
+            else
+                batterySlots[i].gameObject.SetActive(false);
+        }
+    }
+    void enableAmmobox(int index)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < index)
+                ammoBoxSlots[i].gameObject.SetActive(true);
+            else
+                ammoBoxSlots[i].gameObject.SetActive(false);
+        }
+    }
+
+    void CheckInventory()
     {
         numberOfBatteries = SaveScript.baterries;
         numberOfMedkits = SaveScript.Medkits;
+        numberOfAmmoboxes = SaveScript.ammoBoxes;
 
         switch (numberOfMedkits)
         {
             case 1:
                 {
-                    medkitImage1.gameObject.SetActive(true);
-                    medkitButton1.gameObject.SetActive(true);
-                    medkitImage2.gameObject.SetActive(false);
-                    medkitButton2.gameObject.SetActive(false);
-                    medkitImage3.gameObject.SetActive(false);
-                    medkitButton3.gameObject.SetActive(false);
-                    medkitImage4.gameObject.SetActive(false);
-                    medkitButton4.gameObject.SetActive(false);
+                    enableMedkits(1);
                     break;
                 }
             case 2:
                 {
-                    medkitImage1.gameObject.SetActive(true);
-                    medkitButton1.gameObject.SetActive(false);
-                    medkitImage2.gameObject.SetActive(true);
-                    medkitButton2.gameObject.SetActive(true);
-                    medkitImage3.gameObject.SetActive(false);
-                    medkitButton3.gameObject.SetActive(false);
-                    medkitImage4.gameObject.SetActive(false);
-                    medkitButton4.gameObject.SetActive(false);
+                    enableMedkits(2);
                     break;
                 }
             case 3:
                 {
-                    medkitImage1.gameObject.SetActive(true);
-                    medkitButton1.gameObject.SetActive(false);
-                    medkitImage2.gameObject.SetActive(true);
-                    medkitButton2.gameObject.SetActive(false);
-                    medkitImage3.gameObject.SetActive(true);
-                    medkitButton3.gameObject.SetActive(true);
-                    medkitImage4.gameObject.SetActive(false);
-                    medkitButton4.gameObject.SetActive(false);
+                    enableMedkits(3);
                     break;
                 }
             case 4:
                 {
-                    medkitImage1.gameObject.SetActive(true);
-                    medkitButton1.gameObject.SetActive(false);
-                    medkitImage2.gameObject.SetActive(true);
-                    medkitButton2.gameObject.SetActive(false);
-                    medkitImage3.gameObject.SetActive(true);
-                    medkitButton3.gameObject.SetActive(false);
-                    medkitImage4.gameObject.SetActive(true);
-                    medkitButton4.gameObject.SetActive(true);
+                    enableMedkits(4);
                     break;
                 }
             default:
                 {
-                    medkitImage1.gameObject.SetActive(false);
-                    medkitButton1.gameObject.SetActive(false);
-                    medkitImage2.gameObject.SetActive(false);
-                    medkitButton2.gameObject.SetActive(false);
-                    medkitImage3.gameObject.SetActive(false);
-                    medkitButton3.gameObject.SetActive(false);
-                    medkitImage4.gameObject.SetActive(false);
-                    medkitButton4.gameObject.SetActive(false);
+                    enableMedkits(0);
                     break;
                 }
         }
-
         switch (numberOfBatteries)
         {
             case 1:
                 {
-                    batteryImage1.gameObject.SetActive(true);
-                    batteryButton1.gameObject.SetActive(true);
-                    batteryImage2.gameObject.SetActive(false);
-                    batteryButton2.gameObject.SetActive(false);
-                    batteryImage3.gameObject.SetActive(false);
-                    batteryButton3.gameObject.SetActive(false);
-                    batteryImage4.gameObject.SetActive(false);
-                    batteryButton4.gameObject.SetActive(false);
-                    batteryImage5.gameObject.SetActive(false);
-                    batteryButton5.gameObject.SetActive(false);
+                    enableBatteries(1);
                     break;
                 }
             case 2:
                 {
-                    batteryImage1.gameObject.SetActive(true);
-                    batteryButton1.gameObject.SetActive(false);
-                    batteryImage2.gameObject.SetActive(true);
-                    batteryButton2.gameObject.SetActive(true);
-                    batteryImage3.gameObject.SetActive(false);
-                    batteryButton3.gameObject.SetActive(false);
-                    batteryImage4.gameObject.SetActive(false);
-                    batteryButton4.gameObject.SetActive(false);
-                    batteryImage5.gameObject.SetActive(false);
-                    batteryButton5.gameObject.SetActive(false);
+                    enableBatteries(2);
                     break;
                 }
             case 3:
                 {
-                    batteryImage1.gameObject.SetActive(true);
-                    batteryButton1.gameObject.SetActive(false);
-                    batteryImage2.gameObject.SetActive(true);
-                    batteryButton2.gameObject.SetActive(false);
-                    batteryImage3.gameObject.SetActive(true);
-                    batteryButton3.gameObject.SetActive(true);
-                    batteryImage4.gameObject.SetActive(false);
-                    batteryButton4.gameObject.SetActive(false);
-                    batteryImage5.gameObject.SetActive(false);
-                    batteryButton5.gameObject.SetActive(false);
+                    enableBatteries(3);
                     break;
                 }
             case 4:
                 {
-                    batteryImage1.gameObject.SetActive(true);
-                    batteryButton1.gameObject.SetActive(false);
-                    batteryImage2.gameObject.SetActive(true);
-                    batteryButton2.gameObject.SetActive(false);
-                    batteryImage3.gameObject.SetActive(true);
-                    batteryButton3.gameObject.SetActive(false);
-                    batteryImage4.gameObject.SetActive(true);
-                    batteryButton4.gameObject.SetActive(true);
-                    batteryImage5.gameObject.SetActive(false);
-                    batteryButton5.gameObject.SetActive(false);
+                    enableBatteries(4);
                     break;
                 }
             case 5:
                 {
-                    batteryImage1.gameObject.SetActive(true);
-                    batteryButton1.gameObject.SetActive(false);
-                    batteryImage2.gameObject.SetActive(true);
-                    batteryButton2.gameObject.SetActive(false);
-                    batteryImage3.gameObject.SetActive(true);
-                    batteryButton3.gameObject.SetActive(false);
-                    batteryImage4.gameObject.SetActive(true);
-                    batteryButton4.gameObject.SetActive(false);
-                    batteryImage5.gameObject.SetActive(true);
-                    batteryButton5.gameObject.SetActive(true);
+                    enableBatteries(5);
                     break;
                 }
             default: //when no batteries in inventory
                 {
-                    batteryImage1.gameObject.SetActive(false);
-                    batteryButton1.gameObject.SetActive(false);
-                    batteryImage2.gameObject.SetActive(false);
-                    batteryButton2.gameObject.SetActive(false);
-                    batteryImage3.gameObject.SetActive(false);
-                    batteryButton3.gameObject.SetActive(false);
-                    batteryImage4.gameObject.SetActive(false);
-                    batteryButton4.gameObject.SetActive(false);
-                    batteryImage5.gameObject.SetActive(false);
-                    batteryButton5.gameObject.SetActive(false);
+                    enableBatteries(0);
+                    break;
+                }
+        }
+        switch (numberOfAmmoboxes)
+        {
+            case 1:
+                {
+                    enableAmmobox(1);
+                    break;
+                }
+            case 2:
+                {
+                    enableAmmobox(2);
+                    break;
+                }
+            case 3:
+                {
+                    enableAmmobox(3);
+                    break;
+                }
+            case 4:
+                {
+                    enableAmmobox(4);
+                    break;
+                }
+            case 5:
+                {
+                    enableAmmobox(5);
+                    break;
+                }
+            default: //when no batteries in inventory
+                {
+                    enableAmmobox(0);
                     break;
                 }
         }
@@ -262,6 +222,16 @@ public class Inventory : MonoBehaviour
         }
         if (SaveScript.PlayerHealth > 100) SaveScript.PlayerHealth = 100;
     }
+    public void AmmoUpdate()
+    {
+        for (int i = 0; i < numberOfWeapons; i++)
+        {
+            Weapon weaponScript = weaponSlots[i].gameObject.GetComponent<Weapon>();
+            AmmoType currAmmoType = weaponScript.getAmmoType();
+
+            weaponScript.getAmmoSlot().MaxoutCurrentAmmo(currAmmoType);
+        }
+    }
     public void BatteryUpdate()
     {
         audioPlayer.clip = BatteryPickupSound;
@@ -269,5 +239,84 @@ public class Inventory : MonoBehaviour
         batteryForeground.gameObject.GetComponent<Image>().fillAmount = 1f;
         SaveScript.baterries -= 1;
         SaveScript.batteryPower = 1f;
+    }
+
+    //setting active weapon
+    private void activateUsedWeapon(int choice)
+    {
+        choice--;
+        for (int i = 0; i < numberOfWeapons; i++)
+        {
+            if (i == choice)
+                weaponSlots[i].gameObject.SetActive(true);
+            else
+                weaponSlots[i].gameObject.SetActive(false);
+        }
+    }
+    public void activatePistol()
+    {
+        activateUsedWeapon(1);
+    }
+    public void activateHeavyPistol()
+    {
+        activateUsedWeapon(2);
+    }
+    public void actiavteShotgun()
+    {
+        activateUsedWeapon(3);
+    }
+    public void activateSMG()
+    {
+        activateUsedWeapon(4);
+    }
+    public void activateAK()
+    {
+        activateUsedWeapon(5);
+    }
+
+    void initWeapons()
+    {
+        numberOfWeapons = 5;
+        weaponSlots = new GameObject[numberOfWeapons];
+        for (int i = 0; i < numberOfWeapons; i++)
+        {
+            weaponSlots[i] = weaponSlotHolder.transform.GetChild(i).gameObject;
+        }
+    }
+    void initMedkits()
+    {
+        medkitSlots = new GameObject[4]; //created 4 game objects
+        for (int i = 0; i < 4; i++)
+        {
+            medkitSlots[i] = medkitPanel.transform.GetChild(i + 1).gameObject;
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            medkitSlots[i].gameObject.SetActive(false);
+        }
+    }
+    void initBatteries()
+    {
+        batterySlots = new GameObject[5];
+        for (int i = 0; i < 5; i++)
+        {
+            batterySlots[i] = batteryPanel.transform.GetChild(i + 1).gameObject;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            batterySlots[i].gameObject.SetActive(false);
+        }
+    }
+    void initAmmobox()
+    {
+        ammoBoxSlots = new GameObject[5];
+        for (int i = 0; i < 5; i++)
+        {
+            ammoBoxSlots[i] = ammoBoxPanel.transform.GetChild(i + 1).gameObject;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            ammoBoxSlots[i] = ammoBoxPanel.transform.GetChild(i + 1).gameObject;
+        }
     }
 }

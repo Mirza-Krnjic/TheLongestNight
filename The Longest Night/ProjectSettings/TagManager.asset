@@ -10,6 +10,7 @@ TagManager:
   - Axe
   - Knife
   - Enemy
+  - AmmoBox
   layers:
   - Default
   - TransparentFX

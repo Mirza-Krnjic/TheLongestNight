@@ -10,5 +10,6 @@ public class SaveScript : MonoBehaviour
     public static bool flashLightIsOn = false;
     public static bool nightVisionIsOn = false;
     public static int Medkits = 0;
+    public static int ammoBoxes = 0;
     public static int baterries = 0;
 }

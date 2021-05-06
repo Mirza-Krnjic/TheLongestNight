@@ -61,6 +61,20 @@ public class Pickups : MonoBehaviour
                     }
                 }
             }
+             else if (hit.transform.tag == "AmmoBox")
+            {
+                canSeePickup = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (SaveScript.ammoBoxes < 5)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.ammoBoxes += 1;
+                        audioPlayer.clip = batteryPickupSound;
+                        audioPlayer.Play();
+                    }
+                }
+            }
             else
             {
                 canSeePickup = false;
