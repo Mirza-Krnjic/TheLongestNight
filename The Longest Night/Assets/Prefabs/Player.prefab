@@ -376,10 +376,38 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3038609610807687015}
+    - target: {fileID: 919132149257759919, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064517460060044557, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0adba9c2370d3043b8533562109c1eb, type: 2}
     - target: {fileID: 2932691093533186204, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3038609610807687015}
+    - target: {fileID: 2932691093533186204, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: ammoType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466548301389437664, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466548301389437664, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_RenderingPath
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466548301389437664, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136302669667408738, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5361033933948524629, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -428,14 +456,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 6569822971389440004, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7057797480495411841, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3038609610807687015}
+    - target: {fileID: 7879161024990668044, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7879161024990668045, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3038609610807687015}
+    - target: {fileID: 7879161024990668045, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898654956436542313, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0adba9c2370d3043b8533562109c1eb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1601419cfef0bc24e8369075d4435eef, type: 3}
 --- !u!4 &6939335239427318536 stripped

@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Medkit
   - Battery
-  - BaseballBat
-  - Axe
-  - Knife
   - Enemy
   - AmmoBox
+  - Door
+  - HouseKey
+  - CabinKey
+  - RoomKey
+  - ChurchKey
   layers:
   - Default
   - TransparentFX

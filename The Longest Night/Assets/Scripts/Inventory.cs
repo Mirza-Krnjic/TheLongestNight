@@ -24,6 +24,10 @@ public class Inventory : MonoBehaviour
     private GameObject[] ammoBoxSlots;
     public GameObject ammoBoxPanel;
 
+    //KEYs
+    private GameObject[] keySlots;
+    public GameObject keyPanel;
+
     [SerializeField] GameObject batteryForeground;
     float batteryFillAmount;
 
@@ -52,6 +56,7 @@ public class Inventory : MonoBehaviour
         initMedkits();
         initBatteries();
         initAmmobox();
+        initKeys();
 
     }
     private void Update()
@@ -113,6 +118,8 @@ public class Inventory : MonoBehaviour
         numberOfBatteries = SaveScript.baterries;
         numberOfMedkits = SaveScript.Medkits;
         numberOfAmmoboxes = SaveScript.ammoBoxes;
+
+
 
         switch (numberOfMedkits)
         {
@@ -289,9 +296,6 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             medkitSlots[i] = medkitPanel.transform.GetChild(i + 1).gameObject;
-        }
-        for (int i = 0; i < 4; i++)
-        {
             medkitSlots[i].gameObject.SetActive(false);
         }
     }
@@ -301,9 +305,6 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             batterySlots[i] = batteryPanel.transform.GetChild(i + 1).gameObject;
-        }
-        for (int i = 0; i < 5; i++)
-        {
             batterySlots[i].gameObject.SetActive(false);
         }
     }
@@ -313,10 +314,28 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             ammoBoxSlots[i] = ammoBoxPanel.transform.GetChild(i + 1).gameObject;
+            ammoBoxSlots[i].gameObject.SetActive(false);
         }
-        for (int i = 0; i < 5; i++)
+    }
+    void initKeys()
+    {
+        keySlots = new GameObject[4];
+        for (int i = 0; i < 4; i++)
         {
-            ammoBoxSlots[i] = ammoBoxPanel.transform.GetChild(i + 1).gameObject;
+            keySlots[i] = keyPanel.transform.GetChild(i + 1).gameObject;
+
+        }
+        for (int i = 0; i < 4; i++)
+            keySlots[i].gameObject.SetActive(false);
+
+    }
+    public void activateKey(int index) //1cabin, 2room, 3house, 4curch
+    {
+        index--;
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == index)
+                keySlots[i].gameObject.SetActive(true);
         }
     }
 }

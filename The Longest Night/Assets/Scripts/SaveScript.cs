@@ -12,4 +12,10 @@ public class SaveScript : MonoBehaviour
     public static int Medkits = 0;
     public static int ammoBoxes = 0;
     public static int baterries = 0;
+
+    //keys
+    public static bool RoomKey = false;
+    public static bool CabinKey = false;
+    public static bool HouseKey = false;
+    public static bool CurchKey = false;
 }

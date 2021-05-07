@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Pickups : MonoBehaviour
 {
     RaycastHit hit;
@@ -13,7 +12,9 @@ public class Pickups : MonoBehaviour
 
     private float rayDistance;
     private bool canSeePickup = false;
+    public Inventory inventoryScript;
 
+    //sdasdasdasdasda
 
     void Start()
     {
@@ -29,58 +30,114 @@ public class Pickups : MonoBehaviour
         ray.origin = ray.GetPoint(rayDistance);
         ray.direction = -ray.direction;
         int layer_mask = LayerMask.GetMask("PickupLayer");
-        // if (Physics.Raycast(ray, out hit, rayDistance))*/
-        //hit.transform.tag = "Untagged";
+
         if (Physics.Raycast(ray.origin, ray.direction, out hit, rayDistance))
         {
-            if (hit.transform.tag == "Medkit")
+            switch (hit.transform.tag)
             {
-                canSeePickup = true;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (SaveScript.Medkits < 4)
+                case "Medkit":
                     {
-                        Destroy(hit.transform.gameObject);
-                        SaveScript.Medkits += 1;
-                        audioPlayer.clip = medkitPickupSound;
-                        audioPlayer.Play();
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            if (SaveScript.Medkits < 4)
+                            {
+                                Destroy(hit.transform.gameObject);
+                                SaveScript.Medkits += 1;
+                                audioPlayer.clip = medkitPickupSound;
+                                audioPlayer.Play();
+                            }
+                        }
+                        break;
                     }
-                }
-            }
-            else if (hit.transform.tag == "Battery")
-            {
-                canSeePickup = true;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (SaveScript.baterries < 5)
+                case "Battery":
                     {
-                        Destroy(hit.transform.gameObject);
-                        SaveScript.baterries += 1;
-                        audioPlayer.clip = batteryPickupSound;
-                        audioPlayer.Play();
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            if (SaveScript.baterries < 5)
+                            {
+                                Destroy(hit.transform.gameObject);
+                                SaveScript.baterries += 1;
+                                audioPlayer.clip = batteryPickupSound;
+                                audioPlayer.Play();
+                            }
+                        }
+                        break;
                     }
-                }
-            }
-             else if (hit.transform.tag == "AmmoBox")
-            {
-                canSeePickup = true;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (SaveScript.ammoBoxes < 5)
+                case "AmmoBox":
                     {
-                        Destroy(hit.transform.gameObject);
-                        SaveScript.ammoBoxes += 1;
-                        audioPlayer.clip = batteryPickupSound;
-                        audioPlayer.Play();
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            if (SaveScript.ammoBoxes < 5)
+                            {
+                                Destroy(hit.transform.gameObject);
+                                SaveScript.ammoBoxes += 1;
+                                audioPlayer.clip = batteryPickupSound;
+                                audioPlayer.Play();
+                            }
+                        }
+                        break;
                     }
-                }
+                case "CabinKey":
+                    {
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            inventoryScript.activateKey(1);
+                            Destroy(hit.transform.gameObject);
+                            SaveScript.CabinKey = true;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                        }
+                        break;
+                    }
+                case "HouseKey":
+                    {
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            inventoryScript.activateKey(3);
+                            Destroy(hit.transform.gameObject);
+                            SaveScript.HouseKey = true;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                        }
+                        break;
+                    }
+                case "RoomKey":
+                    {
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            inventoryScript.activateKey(2);
+                            Destroy(hit.transform.gameObject);
+                            SaveScript.RoomKey = true;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                        }
+                        break;
+                    }
+                case "ChurchKey":
+                    {
+                        canSeePickup = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            inventoryScript.activateKey(4);
+                            Destroy(hit.transform.gameObject);
+                            SaveScript.CurchKey = true;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        canSeePickup = false;
+                        break;
+                    }
             }
-            else
-            {
-                canSeePickup = false;
-                Debug.Log("Raycast doesnt hit medkit");
-            }
-
         }
 
         if (canSeePickup == true)
