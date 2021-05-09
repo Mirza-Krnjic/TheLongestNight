@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19310186}
   - component: {fileID: 3380234}
   - component: {fileID: 2393040}
+  - component: {fileID: 1276369782597621424}
   m_Layer: 0
   m_Name: TreeCreator_Tall_B
   m_TagString: Untagged
@@ -92,6 +93,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1276369782597621424
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.78
+  m_Height: 46.93147
+  m_Direction: 1
+  m_Center: {x: -0.6035061, y: 22.465734, z: 1.3092272}
 --- !u!21 &2179674
 Material:
   serializedVersion: 6

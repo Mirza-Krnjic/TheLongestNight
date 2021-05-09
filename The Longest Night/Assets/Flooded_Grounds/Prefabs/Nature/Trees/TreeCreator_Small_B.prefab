@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19310186}
   - component: {fileID: 3380234}
   - component: {fileID: 2393040}
+  - component: {fileID: 2092427226035014100}
   m_Layer: 0
   m_Name: TreeCreator_Small_B
   m_TagString: Untagged
@@ -92,6 +93,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2092427226035014100
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.57
+  m_Height: 19.14115
+  m_Direction: 1
+  m_Center: {x: -0.075113535, y: 9.570575, z: 0.17552376}
 --- !u!21 &2179674
 Material:
   serializedVersion: 6
