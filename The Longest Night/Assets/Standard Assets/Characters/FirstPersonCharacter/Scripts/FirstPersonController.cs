@@ -229,8 +229,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // only if the player is going to a run, is running and the fovkick is to be used
             if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
             {
+                if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+                {
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
+                }
             }
         }
 

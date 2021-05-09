@@ -3,17 +3,26 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Medkit
+  - Battery
+  - Enemy
+  - AmmoBox
+  - Door
+  - HouseKey
+  - CabinKey
+  - RoomKey
+  - ChurchKey
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PickupLayer
   - Water
   - UI
-  - 
-  - 
-  - 
+  - PostProcessing
+  - Weapons
+  - Enemy
   - 
   - 
   - 
