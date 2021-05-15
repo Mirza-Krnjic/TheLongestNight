@@ -14,11 +14,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        this.GetComponent<EnemyAI>().HasRecivedDamage();
+        //this.GetComponent<EnemyAI>().HasRecivedDamage();
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
             EnemyDeath();
+
+            
         }
     }
     void EnemyDeath()
