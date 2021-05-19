@@ -471,6 +471,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7201736580334460752}
+  - component: {fileID: 970874606}
+  - component: {fileID: 970874605}
   m_Layer: 0
   m_Name: R_shoulder
   m_TagString: Untagged
@@ -493,6 +495,35 @@ Transform:
   m_Father: {fileID: 1134498679815713172}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &970874606
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886587928712638773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.056752384
+  m_Height: 0.1784364
+  m_Direction: 1
+  m_Center: {x: 0.21, y: -0.03798667, z: -0.7199979}
+--- !u!114 &970874605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886587928712638773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
 --- !u!1 &1138679621875362224
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +533,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5701809611168401675}
+  - component: {fileID: 1797384474}
+  - component: {fileID: 1797384475}
   m_Layer: 0
   m_Name: L_shoulder
   m_TagString: Untagged
@@ -524,6 +557,35 @@ Transform:
   m_Father: {fileID: 1134498679815713172}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1797384474
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138679621875362224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.056752384
+  m_Height: 0.1784364
+  m_Direction: 1
+  m_Center: {x: -0.20401242, y: -0.03798667, z: -0.7199979}
+--- !u!114 &1797384475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138679621875362224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
 --- !u!1 &1156716545246191154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,15 +1442,15 @@ GameObject:
   - component: {fileID: 4405521945362825586}
   - component: {fileID: 6844431485103700900}
   - component: {fileID: 7528116140348836604}
-  - component: {fileID: 7864962424281404545}
   - component: {fileID: 7942151349880743432}
+  - component: {fileID: 1838708502}
   m_Layer: 0
   m_Name: 'Enemy Regular '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4405521945362825589
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,19 +1576,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7864962424281404545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4405521945362825587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80241af038b11ce42bee9b56e4cd3d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!136 &7942151349880743432
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1541,6 +1590,19 @@ CapsuleCollider:
   m_Height: 1.8550452
   m_Direction: 1
   m_Center: {x: -0.010553272, y: 0.91189486, z: 0.11271596}
+--- !u!114 &1838708502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405521945362825587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80241af038b11ce42bee9b56e4cd3d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &4433909452939931476
 GameObject:
   m_ObjectHideFlags: 0

@@ -809,6 +809,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4324715830917031576}
+  - component: {fileID: 1138248582}
+  - component: {fileID: 1138248581}
   m_Layer: 0
   m_Name: LeftShoulder
   m_TagString: Untagged
@@ -831,6 +833,34 @@ Transform:
   m_Father: {fileID: 1603680306263881277}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1138248582
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303193450684391404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19220212, y: 0.08580838, z: 0.1446269}
+  m_Center: {x: -0.71430075, y: 0.030823573, z: 0.032562416}
+--- !u!114 &1138248581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303193450684391404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
 --- !u!1 &1339622706667415451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2253797332338618439
 Transform:
   m_ObjectHideFlags: 0
@@ -2719,6 +2749,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6280950660486008554}
+  - component: {fileID: 695504149}
+  - component: {fileID: 695504148}
   m_Layer: 0
   m_Name: RightShoulder
   m_TagString: Untagged
@@ -2741,6 +2773,34 @@ Transform:
   m_Father: {fileID: 1603680306263881277}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &695504149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269413672795668396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19220212, y: 0.08580838, z: 0.1446269}
+  m_Center: {x: 0.74, y: 0.030823573, z: 0.032562416}
+--- !u!114 &695504148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269413672795668396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
 --- !u!1 &5306819044883534711
 GameObject:
   m_ObjectHideFlags: 0

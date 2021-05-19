@@ -1025,6 +1025,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6506397937868011451}
+  - component: {fileID: 708626205}
+  - component: {fileID: 7566851420839510002}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1051,6 +1053,34 @@ Transform:
   m_Father: {fileID: 6105909491207371324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708626205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261583667389855513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
+--- !u!65 &7566851420839510002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261583667389855513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13349143, y: 0.05871976, z: 0.055406094}
+  m_Center: {x: -0.10023099, y: 0.00016295385, z: 0.00859881}
 --- !u!1 &3597682105935412383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1460,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5603165556608398369}
+  - component: {fileID: 2054781053}
+  - component: {fileID: 2054781052}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1456,6 +1488,34 @@ Transform:
   m_Father: {fileID: 1410676446942672343}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2054781053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177600442014843473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3127552, y: 0.07792518, z: 0.08472341}
+  m_Center: {x: -0.0035852962, y: -0.011839071, z: 0.019149931}
+--- !u!114 &2054781052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177600442014843473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HenemyWeaponDamage: 1
+  hurtAnim: {fileID: 0}
+  myPlayer: {fileID: 0}
 --- !u!1 &4447853272330183692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5123679330037916680
 Transform:
   m_ObjectHideFlags: 0

@@ -75,10 +75,15 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
+            readyToShoot = false;
             anim.SetBool("running", true);
+
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
+        {
+            readyToShoot = true;
             anim.SetBool("running", false);
+        }
 
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
             anim.SetBool("walking", true);

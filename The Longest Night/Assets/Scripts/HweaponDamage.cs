@@ -8,6 +8,7 @@ public class HweaponDamage : MonoBehaviour
     [SerializeField] Animator hurtAnim;
     private bool hitActive = false;
     [SerializeField] AudioSource myPlayer;
+    
 
 
     private void OnTriggerEnter(Collider other)
