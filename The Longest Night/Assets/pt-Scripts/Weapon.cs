@@ -29,6 +29,7 @@ public class Weapon : MonoBehaviour
     //Graphics
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitImpactEffect;
+    [SerializeField] GameObject hitImpactBloodEffect;
 
 
     //sound, UI
@@ -37,6 +38,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
     //[SerializeField] Canvas canvasToDisabe;
+    
 
 
     private void Awake()
@@ -155,11 +157,11 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-            CreateImpactExploation(rayHit);
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 EnemyHealth target = rayHit.transform.GetComponent<EnemyHealth>();
                 target.TakeDamage(damage);
+                CreateImpactBlood(rayHit);
             }
         }
         else if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range))
@@ -193,6 +195,12 @@ public class Weapon : MonoBehaviour
     private void CreateImpactExploation(RaycastHit hit)
     {
         GameObject impactEffect = Instantiate(hitImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactEffect, .1f);
+    }
+
+    private void CreateImpactBlood(RaycastHit hit)
+    {
+        GameObject impactEffect = Instantiate(hitImpactBloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactEffect, .1f);
     }
 
@@ -260,4 +268,6 @@ public class Weapon : MonoBehaviour
     {
         return ammoSlot;
     }
+
+   
 }

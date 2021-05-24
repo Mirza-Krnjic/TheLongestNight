@@ -186,7 +186,6 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms:
-    - Standalone
     - Android
   - serializedVersion: 2
     name: Ultra
@@ -234,7 +233,7 @@ QualitySettings:
     PS4: 5
     PSP2: 2
     Stadia: 5
-    Standalone: 1
+    Standalone: 4
     WebGL: 3
     Windows Store Apps: 5
     XboxOne: 5

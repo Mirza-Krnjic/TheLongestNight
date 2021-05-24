@@ -13,11 +13,18 @@ public class EnemyAI : MonoBehaviour
     EnemyHealth enemyHealth;
     CapsuleCollider zCollider;
 
-    void Start()
+    private Collider[] collidersToDisable;
+    private int aryIndex = -1;
+
+
+    void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
         zCollider = GetComponent<CapsuleCollider>();
+        target = SaveScript.targetPlayer;
+
+        collidersToDisable = new Collider[2];
     }
 
     // Update is called once per frame
@@ -25,11 +32,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemyHealth.IsDead())
         {
-
+            
             this.enabled = false;
             navMeshAgent.enabled = false;
-            
+
             zCollider.enabled = false;
+
+
         }
         else
         {
@@ -84,6 +93,19 @@ public class EnemyAI : MonoBehaviour
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    public void disableColiders()
+    {
+        foreach (var item in collidersToDisable)
+        {
+            item.enabled = false;
+        }
+    }
+
+    public void populateColiderAry(BoxCollider col)
+    {
+        collidersToDisable[++aryIndex] = col;
     }
 
 }

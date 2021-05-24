@@ -1450,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4405521945362825589
 Transform:
   m_ObjectHideFlags: 0
@@ -1544,6 +1544,7 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRange: 13
   turnSpeed: 5
+  collidersToDisable: []
 --- !u!114 &6844431485103700900
 MonoBehaviour:
   m_ObjectHideFlags: 0

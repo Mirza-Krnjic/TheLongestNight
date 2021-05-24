@@ -8,8 +8,17 @@ public class HweaponDamage : MonoBehaviour
     [SerializeField] Animator hurtAnim;
     private bool hitActive = false;
     [SerializeField] AudioSource myPlayer;
-    
+    public static BoxCollider boxColliderToDisable;
+    private EnemyAI EnemyAIref;
 
+    private void Start()
+    {
+        hurtAnim = SaveScript.hurtAnim;
+        myPlayer = SaveScript.hitSound;
+        boxColliderToDisable = GetComponent<BoxCollider>();
+        EnemyAIref = GetComponentInParent<EnemyAI>();
+        EnemyAIref.populateColiderAry(boxColliderToDisable);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +34,7 @@ public class HweaponDamage : MonoBehaviour
             }
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
