@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject weapons;
+    [SerializeField] GameObject FPS_UI;
 
     void Start()
     {
@@ -71,6 +72,7 @@ public class Inventory : MonoBehaviour
         {
             if (optionsActive == false)//menu on
             {
+                FPS_UI.gameObject.SetActive(false);
                 weapons.gameObject.SetActive(false);
                 Time.timeScale = 0f;
                 optionsMenu.gameObject.SetActive(true);
@@ -84,6 +86,7 @@ public class Inventory : MonoBehaviour
                 optionsActive = false;
                 Cursor.visible = false;
                 weapons.gameObject.SetActive(true);
+                FPS_UI.gameObject.SetActive(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.I))

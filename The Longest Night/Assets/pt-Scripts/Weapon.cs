@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     bool shooting, reloading;
     bool isAimed;
     public bool readyToShoot = true;
+    public bool canReload = true;
 
     //Reference
     [SerializeField] Camera playerCamera;
@@ -38,7 +39,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
     //[SerializeField] Canvas canvasToDisabe;
-    
+
 
 
     private void Awake()
@@ -78,12 +79,14 @@ public class Weapon : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
             readyToShoot = false;
+            canReload = false;
             anim.SetBool("running", true);
 
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
         {
             readyToShoot = true;
+            canReload = true;
             anim.SetBool("running", false);
         }
 
@@ -100,7 +103,7 @@ public class Weapon : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(KeyCode.R) && (canReload == true) && (isAimed == false) && bulletsLeft < magazineSize && !reloading) Reload();
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
@@ -269,5 +272,5 @@ public class Weapon : MonoBehaviour
         return ammoSlot;
     }
 
-   
+
 }

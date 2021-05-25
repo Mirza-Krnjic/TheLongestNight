@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -13,8 +15,21 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] GameObject BackToMenuPanel;
     public Slider LightSlider;
     public Toggle fogToggle;
+
+    //aa
+    public Toggle toggleAAoFF;
+    public Toggle toggleFXAA;
+    public Toggle toggleSMAA;
+    public Toggle toggleTAA;
+    private int antiState = 4;
+
     [SerializeField] PostProcessLayer myPPLayer;
     private bool fogOn = true;
+
+    public Slider ambianceLevel;
+    public Slider SFXLevel;
+    public AudioMixer ambienceMixer;
+    public AudioMixer sfxMixer;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +61,7 @@ public class OptionsMenu : MonoBehaviour
                 fogOn = true;
             }
         }
-         if (fogToggle.isOn == false)
+        if (fogToggle.isOn == false)
         {
             if (fogOn)
             {
@@ -57,6 +72,85 @@ public class OptionsMenu : MonoBehaviour
             {
                 myPPLayer.fog.enabled = true;
                 fogOn = true;
+            }
+        }
+    }
+
+    public void ambianceVolume()
+    {
+        ambienceMixer.SetFloat("Volume", ambianceLevel.value);
+    }
+    public void SFXVolume()
+    {
+        sfxMixer.SetFloat("Volume", SFXLevel.value);
+    }
+
+    public void antiAliasingOFF()
+    {
+        if (antiState != 1)
+        {
+            if (toggleAAoFF.isOn == true)
+            {
+                myPPLayer.antialiasingMode = PostProcessLayer.Antialiasing.None;
+                toggleFXAA.isOn = false;
+                toggleSMAA.isOn = false;
+                toggleTAA.isOn = false;
+                antiState = 1;
+            }
+        }
+    }
+
+    public void antiAliasingFXAA()
+    {
+        if (antiState != 2)
+        {
+            if (toggleFXAA.isOn == true)
+            {
+                myPPLayer.antialiasingMode = PostProcessLayer.Antialiasing.FastApproximateAntialiasing;
+                toggleAAoFF.isOn = false;
+                toggleSMAA.isOn = false;
+                toggleTAA.isOn = false;
+                antiState = 2;
+            }
+        }
+    }
+
+    public void returnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void antiAliasingSMAA()
+    {
+        if (antiState != 3)
+        {
+            if (toggleSMAA.isOn == true)
+            {
+                myPPLayer.antialiasingMode = PostProcessLayer.Antialiasing.SubpixelMorphologicalAntialiasing;
+                toggleAAoFF.isOn = false;
+                toggleFXAA.isOn = false;
+                toggleTAA.isOn = false;
+                antiState = 3;
+            }
+        }
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
+    public void antiAliasingTAA()
+    {
+        if (antiState != 4)
+        {
+            if (toggleTAA.isOn == true)
+            {
+                myPPLayer.antialiasingMode = PostProcessLayer.Antialiasing.TemporalAntialiasing;
+                toggleAAoFF.isOn = false;
+                toggleFXAA.isOn = false;
+                toggleSMAA.isOn = false;
+                antiState = 4;
             }
         }
     }
