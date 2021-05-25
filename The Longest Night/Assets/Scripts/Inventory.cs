@@ -42,10 +42,15 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip BatteryPickupSound;
 
     bool inventoryPanelIsActive = false;
+    bool optionsActive = false;
+
+    [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject weapons;
 
     void Start()
     {
 
+        optionsMenu.gameObject.SetActive(false);
         audioPlayer = GetComponent<AudioSource>();
         Cursor.visible = false;
         inventoryPanelIsActive = false;
@@ -61,6 +66,27 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (optionsActive == false)//menu on
+            {
+                weapons.gameObject.SetActive(false);
+                Time.timeScale = 0f;
+                optionsMenu.gameObject.SetActive(true);
+                optionsActive = true;
+                Cursor.visible = true;
+            }
+            else if (optionsActive == true)//menu off
+            {
+                Time.timeScale = 1f;
+                optionsMenu.gameObject.SetActive(false);
+                optionsActive = false;
+                Cursor.visible = false;
+                weapons.gameObject.SetActive(true);
+                weapons.gameObject.SetActive(true);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryPanelIsActive == false)
