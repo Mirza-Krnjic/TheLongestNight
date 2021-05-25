@@ -1517,7 +1517,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49
-  m_Speed: 3.5
+  m_Speed: 3.8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRange: 13
   turnSpeed: 5
-  collidersToDisable: []
+  enemyAudioSource: {fileID: 0}
 --- !u!114 &6844431485103700900
 MonoBehaviour:
   m_ObjectHideFlags: 0

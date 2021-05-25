@@ -256,7 +256,7 @@ public class Inventory : MonoBehaviour
         {
             audioPlayer.clip = medkitPickupSound;
             audioPlayer.Play();
-            SaveScript.PlayerHealth += 10;
+            SaveScript.PlayerHealth += 40;
             SaveScript.HealthChanged = true;
             SaveScript.Medkits -= 1;
         }
