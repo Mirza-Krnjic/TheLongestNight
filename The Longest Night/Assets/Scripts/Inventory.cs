@@ -74,8 +74,8 @@ public class Inventory : MonoBehaviour
             if (optionsActive == false)//menu on
             {
                 FPS_UI.gameObject.SetActive(false);
-                weapons.gameObject.SetActive(false);
-                Time.timeScale = 0f;
+                //weapons.gameObject.SetActive(false);
+                //Time.timeScale = 0f;
                 optionsMenu.gameObject.SetActive(true);
                 optionsActive = true;
                 Cursor.visible = true;
@@ -84,11 +84,11 @@ public class Inventory : MonoBehaviour
             }
             else if (optionsActive == true)//menu off
             {
-                Time.timeScale = 1f;
+               //Time.timeScale = 1f;
                 optionsMenu.gameObject.SetActive(false);
                 optionsActive = false;
                 Cursor.visible = false;
-                weapons.gameObject.SetActive(true);
+                //weapons.gameObject.SetActive(true);
                 FPS_UI.gameObject.SetActive(true);
 
                 playerAudioListener.enabled = true;
@@ -98,14 +98,14 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryPanelIsActive == false)
             {
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 inventoryPanelIsActive = true;
                 InventoryPanel.gameObject.SetActive(true);
                 Cursor.visible = true;
             }
             else if (inventoryPanelIsActive == true)
             {
-                Time.timeScale = 1f;
+                //Time.timeScale = 1f;
                 inventoryPanelIsActive = false;
                 InventoryPanel.gameObject.SetActive(false);
                 Cursor.visible = false;

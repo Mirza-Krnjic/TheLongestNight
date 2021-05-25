@@ -48,6 +48,7 @@ public class SaveScript : MonoBehaviour
         hitSound = EnemyHitSound;
         if (newGame)
         {
+            Time.timeScale = 1f;
             PlayerHealth = 100;
             HealthChanged = false;
             batteryPower = 1.0f;
