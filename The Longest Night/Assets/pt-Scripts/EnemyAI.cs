@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
-    public static AudioSource enemyAudioSource;
+    public AudioSource enemyAudioSource;
 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 
             zCollider.enabled = false;
 
-
+            enemyAudioSource.gameObject.SetActive(false);
         }
         else
         {
@@ -103,6 +103,7 @@ public class EnemyAI : MonoBehaviour
 
     public void disableColiders()
     {
+        enemyAudioSource.enabled = false;
         foreach (var item in collidersToDisable)
         {
             item.enabled = false;
@@ -115,5 +116,5 @@ public class EnemyAI : MonoBehaviour
     }
 
 
-    
+
 }
