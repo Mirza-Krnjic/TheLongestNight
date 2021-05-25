@@ -24,6 +24,9 @@ public class SaveScript : MonoBehaviour
     [SerializeField] Transform playerLocation;
     [SerializeField] Animator EnemyhurtAnim;
     [SerializeField] AudioSource EnemyHitSound;
+    [SerializeField] AudioClip[] zombieSounds;
+    public static int soundsAryZize;
+    public static AudioClip[] _zombieSounds;
 
     public static Transform targetPlayer;
     public static Animator hurtAnim;
@@ -37,6 +40,9 @@ public class SaveScript : MonoBehaviour
 
     private void Awake()
     {
+        _zombieSounds = zombieSounds;
+        soundsAryZize = zombieSounds.Length;
+        
         targetPlayer = playerLocation;
         hurtAnim = EnemyhurtAnim;
         hitSound = EnemyHitSound;

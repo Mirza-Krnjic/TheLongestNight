@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
+    public static AudioSource enemyAudioSource;
 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
@@ -23,6 +24,11 @@ public class EnemyAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         zCollider = GetComponent<CapsuleCollider>();
         target = SaveScript.targetPlayer;
+        enemyAudioSource = GetComponent<AudioSource>();
+        enemyAudioSource.clip = SaveScript._zombieSounds[Random.Range(0, SaveScript.soundsAryZize)];
+
+        enemyAudioSource.Play();
+        enemyAudioSource.playOnAwake = true;
 
         collidersToDisable = new Collider[2];
     }
@@ -32,7 +38,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemyHealth.IsDead())
         {
-            
+
             this.enabled = false;
             navMeshAgent.enabled = false;
 
@@ -108,4 +114,6 @@ public class EnemyAI : MonoBehaviour
         collidersToDisable[++aryIndex] = col;
     }
 
+
+    
 }

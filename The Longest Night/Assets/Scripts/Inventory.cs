@@ -47,6 +47,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject weapons;
     [SerializeField] GameObject FPS_UI;
+    [SerializeField] AudioListener playerAudioListener;
 
     void Start()
     {
@@ -78,6 +79,8 @@ public class Inventory : MonoBehaviour
                 optionsMenu.gameObject.SetActive(true);
                 optionsActive = true;
                 Cursor.visible = true;
+
+                playerAudioListener.enabled = false;
             }
             else if (optionsActive == true)//menu off
             {
@@ -87,6 +90,8 @@ public class Inventory : MonoBehaviour
                 Cursor.visible = false;
                 weapons.gameObject.SetActive(true);
                 FPS_UI.gameObject.SetActive(true);
+
+                playerAudioListener.enabled = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
