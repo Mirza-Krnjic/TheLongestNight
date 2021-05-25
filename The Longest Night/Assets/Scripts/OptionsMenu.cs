@@ -26,6 +26,10 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] PostProcessLayer myPPLayer;
     private bool fogOn = true;
 
+    public Toggle fpsToggle;
+    [SerializeField] GameObject FPSdisplay;
+    private bool FPSOn = false;
+
     public Slider ambianceLevel;
     public Slider SFXLevel;
     public AudioMixer ambienceMixer;
@@ -72,6 +76,40 @@ public class OptionsMenu : MonoBehaviour
             {
                 myPPLayer.fog.enabled = true;
                 fogOn = true;
+            }
+        }
+    }
+
+    public void FPSState()
+    {
+        if (fpsToggle.isOn == true)
+        {
+            if (FPSOn)
+            {
+                //myPPLayer.fog.enabled = false;
+                FPSdisplay.gameObject.SetActive(false);
+                FPSOn = false;
+            }
+            else if (FPSOn == false)
+            {
+               // myPPLayer.fog.enabled = true;
+               FPSdisplay.gameObject.SetActive(true);
+                FPSOn = true;
+            }
+        }
+        if (fpsToggle.isOn == false)
+        {
+            if (FPSOn)
+            {
+               // myPPLayer.fog.enabled = false;
+               FPSdisplay.gameObject.SetActive(false);
+                FPSOn = false;
+            }
+            else if (FPSOn == false)
+            {
+                //myPPLayer.fog.enabled = true;
+                FPSdisplay.gameObject.SetActive(true);
+                FPSOn = true;
             }
         }
     }
