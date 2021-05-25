@@ -84,7 +84,6 @@ public class Inventory : MonoBehaviour
                 optionsActive = false;
                 Cursor.visible = false;
                 weapons.gameObject.SetActive(true);
-                weapons.gameObject.SetActive(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
