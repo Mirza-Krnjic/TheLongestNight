@@ -1,154 +1,209 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Pickups : MonoBehaviour
 {
-    RaycastHit hit;
-    [SerializeField] float distance = 4f;
     [SerializeField] GameObject pickupMessage;
     [SerializeField] AudioClip medkitPickupSound;
     [SerializeField] AudioClip batteryPickupSound;
-    private AudioSource audioPlayer;
+    [SerializeField] AudioSource audioPlayer;
+    private bool inRange = false;
+    private bool pickedUp = false;
+    private GameObject refToGameObject;
 
-    private float rayDistance;
-    private bool canSeePickup = false;
     public Inventory inventoryScript;
 
-    //sdasdasdasdasda
 
     void Start()
     {
         pickupMessage.gameObject.SetActive(false);
-        rayDistance = distance;
-        audioPlayer = GetComponent<AudioSource>();
     }
 
-
-    void Update()
+    private void Update()
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        ray.origin = ray.GetPoint(rayDistance);
-        ray.direction = -ray.direction;
-        int layer_mask = LayerMask.GetMask("PickupLayer");
+        if (inRange == true && pickedUp == false)
+        {
+            pickUpItem();
+        }
+    }
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, rayDistance))
+    void OnTriggerEnter(Collider other)
+    {
+        pickedUp = false;
+        string tag = other.gameObject.transform.tag;
+        switch (tag)
         {
-            switch (hit.transform.tag)
-            {
-                case "Medkit":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            if (SaveScript.Medkits < 4)
-                            {
-                                Destroy(hit.transform.gameObject);
-                                SaveScript.Medkits += 1;
-                                audioPlayer.clip = medkitPickupSound;
-                                audioPlayer.Play();
-                            }
-                        }
-                        break;
-                    }
-                case "Battery":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            if (SaveScript.baterries < 5)
-                            {
-                                Destroy(hit.transform.gameObject);
-                                SaveScript.baterries += 1;
-                                audioPlayer.clip = batteryPickupSound;
-                                audioPlayer.Play();
-                            }
-                        }
-                        break;
-                    }
-                case "AmmoBox":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            if (SaveScript.ammoBoxes < 5)
-                            {
-                                Destroy(hit.transform.gameObject);
-                                SaveScript.ammoBoxes += 1;
-                                audioPlayer.clip = batteryPickupSound;
-                                audioPlayer.Play();
-                            }
-                        }
-                        break;
-                    }
-                case "CabinKey":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            inventoryScript.activateKey(1);
-                            Destroy(hit.transform.gameObject);
-                            SaveScript.CabinKey = true;
-                            audioPlayer.clip = batteryPickupSound;
-                            audioPlayer.Play();
-                        }
-                        break;
-                    }
-                case "HouseKey":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            inventoryScript.activateKey(3);
-                            Destroy(hit.transform.gameObject);
-                            SaveScript.HouseKey = true;
-                            audioPlayer.clip = batteryPickupSound;
-                            audioPlayer.Play();
-                        }
-                        break;
-                    }
-                case "RoomKey":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            inventoryScript.activateKey(2);
-                            Destroy(hit.transform.gameObject);
-                            SaveScript.RoomKey = true;
-                            audioPlayer.clip = batteryPickupSound;
-                            audioPlayer.Play();
-                        }
-                        break;
-                    }
-                case "ChurchKey":
-                    {
-                        canSeePickup = true;
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            inventoryScript.activateKey(4);
-                            Destroy(hit.transform.gameObject);
-                            SaveScript.CurchKey = true;
-                            audioPlayer.clip = batteryPickupSound;
-                            audioPlayer.Play();
-                        }
-                        break;
-                    }
-                default:
-                    {
-                        canSeePickup = false;
-                        break;
-                    }
-            }
+            case "Medkit":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            case "Battery":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            case "AmmoBox":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            case "CabinKey":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            case "HouseKey":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            case "RoomKey":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    break;
+                }
+            case "ChurchKey":
+                {
+                    refToGameObject = other.gameObject;
+                    pickupMessage.gameObject.SetActive(true);
+                    inRange = true;
+                    return;
+                }
+            default:
+                {
+                    inRange = false;
+                    pickupMessage.gameObject.SetActive(false);
+                    return;
+                }
         }
+    }
 
-        if (canSeePickup == true)
+    void pickUpItem()
+    {
+        string tag = refToGameObject.gameObject.transform.tag;
+        switch (tag)
         {
-            pickupMessage.gameObject.SetActive(true);
-            rayDistance = 1000f;
+            case "Medkit":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if (SaveScript.Medkits < 4)
+                        {
+                            Destroy(refToGameObject);
+                            SaveScript.Medkits += 1;
+                            audioPlayer.clip = medkitPickupSound;
+                            audioPlayer.Play();
+                            pickedUp = true;
+                            pickupMessage.gameObject.SetActive(false);
+                        }
+
+                    }
+                    break;
+                }
+            case "Battery":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if (SaveScript.baterries < 5)
+                        {
+                            Destroy(refToGameObject.transform.gameObject);
+                            SaveScript.baterries += 1;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                            pickedUp = true;
+                             pickupMessage.gameObject.SetActive(false);
+                        }
+                    }
+                    break;
+                }
+            case "AmmoBox":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if (SaveScript.ammoBoxes < 5)
+                        {
+                            Destroy(refToGameObject.transform.gameObject);
+                            SaveScript.ammoBoxes += 1;
+                            audioPlayer.clip = batteryPickupSound;
+                            audioPlayer.Play();
+                            pickedUp = true;
+                             pickupMessage.gameObject.SetActive(false);
+                        }
+                    }
+                    break;
+                }
+            case "CabinKey":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        inventoryScript.activateKey(1);
+                        Destroy(refToGameObject.transform.gameObject);
+                        SaveScript.CabinKey = true;
+                        audioPlayer.clip = batteryPickupSound;
+                        audioPlayer.Play();
+                        pickedUp = true;
+                    }
+                    break;
+                }
+            case "HouseKey":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        inventoryScript.activateKey(3);
+                        Destroy(refToGameObject.transform.gameObject);
+                        SaveScript.HouseKey = true;
+                        audioPlayer.clip = batteryPickupSound;
+                        audioPlayer.Play();
+                        pickedUp = true;
+                    }
+                    break;
+                }
+            case "RoomKey":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        inventoryScript.activateKey(2);
+                        Destroy(refToGameObject.transform.gameObject);
+                        SaveScript.RoomKey = true;
+                        audioPlayer.clip = batteryPickupSound;
+                        audioPlayer.Play();
+                        pickedUp = true;
+                    }
+                    break;
+                }
+            case "ChurchKey":
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        inventoryScript.activateKey(4);
+                        Destroy(refToGameObject.transform.gameObject);
+                        SaveScript.CurchKey = true;
+                        audioPlayer.clip = batteryPickupSound;
+                        audioPlayer.Play();
+                        pickedUp = true;
+                    }
+                    break;
+                }
         }
-        if (canSeePickup == false)
-        {
-            pickupMessage.gameObject.SetActive(false);
-            rayDistance = distance;
-        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pickupMessage.gameObject.SetActive(false);
+        inRange = false;
     }
 }

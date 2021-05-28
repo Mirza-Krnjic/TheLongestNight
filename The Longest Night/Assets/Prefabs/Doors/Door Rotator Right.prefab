@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 3313582243183334668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bfb4ee1611c0cf479e6e4cc5e8ab8bd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,9 +128,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773375b8aab920c4db070915cec342fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
   isOpen: 0
   doorOpenText: {fileID: 0}
   doorCloseText: {fileID: 0}
+  needDoorKeyText: {fileID: 0}
+  CabinDoorSound: {fileID: 0}
+  RoomDoorSound: {fileID: 0}
+  HouseDoorSound: {fileID: 0}
+  cabin: 0
+  room: 0
+  house: 0
+  church: 0
 --- !u!1 &6815337141346233929
 GameObject:
   m_ObjectHideFlags: 0

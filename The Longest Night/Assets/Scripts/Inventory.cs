@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject InventoryPanel;
 
+
     //WEAPON INVENTORY
     private int numberOfWeapons; //can potentialy add to med, ammom, btry
     private GameObject[] weaponSlots;
@@ -73,6 +74,7 @@ public class Inventory : MonoBehaviour
         {
             if (optionsActive == false)//menu on
             {
+
                 FPS_UI.gameObject.SetActive(false);
                 //weapons.gameObject.SetActive(false);
                 //Time.timeScale = 0f;
@@ -84,7 +86,6 @@ public class Inventory : MonoBehaviour
             }
             else if (optionsActive == true)//menu off
             {
-               //Time.timeScale = 1f;
                 optionsMenu.gameObject.SetActive(false);
                 optionsActive = false;
                 Cursor.visible = false;
