@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     bool shooting, reloading;
     bool isAimed;
     public bool readyToShoot = true;
+    public bool canReload = true;
 
     //Reference
     [SerializeField] Camera playerCamera;
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour
     //Graphics
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitImpactEffect;
+    [SerializeField] GameObject hitImpactBloodEffect;
 
 
     //sound, UI
@@ -37,6 +39,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource reloadSound;
     //[SerializeField] Canvas canvasToDisabe;
+
 
 
     private void Awake()
@@ -75,10 +78,17 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
+            readyToShoot = false;
+            canReload = false;
             anim.SetBool("running", true);
+
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
+        {
+            readyToShoot = true;
+            canReload = true;
             anim.SetBool("running", false);
+        }
 
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0) //if player is moving
             anim.SetBool("walking", true);
@@ -93,7 +103,7 @@ public class Weapon : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(KeyCode.R) && (canReload == true) && (isAimed == false) && bulletsLeft < magazineSize && !reloading) Reload();
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
@@ -150,11 +160,11 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-            CreateImpactExploation(rayHit);
             if (rayHit.collider.CompareTag("Enemy"))
             {
                 EnemyHealth target = rayHit.transform.GetComponent<EnemyHealth>();
                 target.TakeDamage(damage);
+                CreateImpactBlood(rayHit);
             }
         }
         else if (Physics.Raycast(playerCamera.transform.position, direction, out rayHit, range))
@@ -188,6 +198,12 @@ public class Weapon : MonoBehaviour
     private void CreateImpactExploation(RaycastHit hit)
     {
         GameObject impactEffect = Instantiate(hitImpactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactEffect, .1f);
+    }
+
+    private void CreateImpactBlood(RaycastHit hit)
+    {
+        GameObject impactEffect = Instantiate(hitImpactBloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactEffect, .1f);
     }
 
@@ -255,4 +271,6 @@ public class Weapon : MonoBehaviour
     {
         return ammoSlot;
     }
+
+
 }

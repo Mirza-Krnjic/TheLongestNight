@@ -83,6 +83,18 @@ public class DoorScript : MonoBehaviour
     {
         inRange = true;
 
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (locked == false)
+            {
+                if (isOpen == false)
+                {
+                    anim.SetTrigger("Open");
+                    isOpen = true;
+                }
+            }
+        }
+
         if (locked)
         {
             needDoorKeyText.text = "You need the " + doorType + " key.";

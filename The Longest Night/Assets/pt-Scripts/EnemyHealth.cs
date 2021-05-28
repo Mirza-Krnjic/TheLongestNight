@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
     bool isDead = false;
+    EnemyAI enemyAIref;
 
     public bool IsDead()
     {
         return isDead;
     }
 
+    private void Start()
+    {
+        enemyAIref = GetComponentInParent<EnemyAI>();
+
+    }
+
     public void TakeDamage(float damage)
     {
-        this.GetComponent<EnemyAI>().HasRecivedDamage();
+        this.GetComponentInParent<EnemyAI>().HasRecivedDamage();
         hitPoints -= damage;
         if (hitPoints <= 0)
         {
@@ -23,8 +31,22 @@ public class EnemyHealth : MonoBehaviour
     }
     void EnemyDeath()
     {
-        if( isDead) return;
-        isDead= true;
-        GetComponent<Animator>().SetTrigger("die");
+        if (isDead) return;
+        isDead = true;
+
+
+        enemyAIref.disableColiders();
+        enemyAIref.enabled = false;
+       
+
+        GetComponentInParent<NavMeshAgent>().enabled = false;
+        GetComponentInParent<CapsuleCollider>().enabled = false;
+
+
+        
+        GetComponentInParent<Animator>().SetTrigger("die");
+        
+        SaveScript.enemiesOnScreen--;
+        //SaveScript.enemiesCurrent++; later will trigget final scene (final boss)
     }
 }

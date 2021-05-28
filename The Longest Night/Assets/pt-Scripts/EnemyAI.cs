@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
+    public AudioSource enemyAudioSource;
 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
@@ -13,11 +14,23 @@ public class EnemyAI : MonoBehaviour
     EnemyHealth enemyHealth;
     CapsuleCollider zCollider;
 
-    void Start()
+    private Collider[] collidersToDisable;
+    private int aryIndex = -1;
+
+
+    void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
         zCollider = GetComponent<CapsuleCollider>();
+        target = SaveScript.targetPlayer;
+        enemyAudioSource = GetComponent<AudioSource>();
+        enemyAudioSource.clip = SaveScript._zombieSounds[Random.Range(0, SaveScript.soundsAryZize)];
+
+        enemyAudioSource.Play();
+        enemyAudioSource.playOnAwake = true;
+
+        collidersToDisable = new Collider[2];
     }
 
     // Update is called once per frame
@@ -28,8 +41,10 @@ public class EnemyAI : MonoBehaviour
 
             this.enabled = false;
             navMeshAgent.enabled = false;
-            
+
             zCollider.enabled = false;
+
+            enemyAudioSource.gameObject.SetActive(false);
         }
         else
         {
@@ -85,5 +100,21 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
+
+    public void disableColiders()
+    {
+        enemyAudioSource.enabled = false;
+        foreach (var item in collidersToDisable)
+        {
+            item.enabled = false;
+        }
+    }
+
+    public void populateColiderAry(BoxCollider col)
+    {
+        collidersToDisable[++aryIndex] = col;
+    }
+
+
 
 }

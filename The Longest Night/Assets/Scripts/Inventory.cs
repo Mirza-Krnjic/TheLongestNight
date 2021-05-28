@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject InventoryPanel;
 
+
     //WEAPON INVENTORY
     private int numberOfWeapons; //can potentialy add to med, ammom, btry
     private GameObject[] weaponSlots;
@@ -42,10 +43,17 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip BatteryPickupSound;
 
     bool inventoryPanelIsActive = false;
+    bool optionsActive = false;
+
+    [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject weapons;
+    [SerializeField] GameObject FPS_UI;
+    [SerializeField] AudioListener playerAudioListener;
 
     void Start()
     {
 
+        optionsMenu.gameObject.SetActive(false);
         audioPlayer = GetComponent<AudioSource>();
         Cursor.visible = false;
         inventoryPanelIsActive = false;
@@ -61,18 +69,44 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (optionsActive == false)//menu on
+            {
+
+                FPS_UI.gameObject.SetActive(false);
+                //weapons.gameObject.SetActive(false);
+                //Time.timeScale = 0f;
+                optionsMenu.gameObject.SetActive(true);
+                optionsActive = true;
+                Cursor.visible = true;
+
+                playerAudioListener.enabled = false;
+            }
+            else if (optionsActive == true)//menu off
+            {
+                optionsMenu.gameObject.SetActive(false);
+                optionsActive = false;
+                Cursor.visible = false;
+                //weapons.gameObject.SetActive(true);
+                FPS_UI.gameObject.SetActive(true);
+
+                playerAudioListener.enabled = true;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryPanelIsActive == false)
             {
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 inventoryPanelIsActive = true;
                 InventoryPanel.gameObject.SetActive(true);
                 Cursor.visible = true;
             }
             else if (inventoryPanelIsActive == true)
             {
-                Time.timeScale = 1f;
+                //Time.timeScale = 1f;
                 inventoryPanelIsActive = false;
                 InventoryPanel.gameObject.SetActive(false);
                 Cursor.visible = false;
@@ -223,7 +257,7 @@ public class Inventory : MonoBehaviour
         {
             audioPlayer.clip = medkitPickupSound;
             audioPlayer.Play();
-            SaveScript.PlayerHealth += 10;
+            SaveScript.PlayerHealth += 40;
             SaveScript.HealthChanged = true;
             SaveScript.Medkits -= 1;
         }
