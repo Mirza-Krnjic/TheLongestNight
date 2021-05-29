@@ -16,10 +16,17 @@ public class EnemyAI : MonoBehaviour
 
     private Collider[] collidersToDisable;
     private int aryIndex = -1;
+    private Animator enemyAnimator;
 
+    [SerializeField] bool biting = false;
 
     void Awake()
     {
+        enemyAnimator = GetComponent<Animator>();
+
+        if (biting)
+            enemyAnimator.SetTrigger("bite");
+
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
         zCollider = GetComponent<CapsuleCollider>();
@@ -79,13 +86,13 @@ public class EnemyAI : MonoBehaviour
 
     void ChaseTarget()
     {
-        GetComponent<Animator>().SetBool("attack", false);
-        GetComponent<Animator>().SetTrigger("move");
+        enemyAnimator.SetBool("attack", false);
+        enemyAnimator.SetTrigger("move");
         navMeshAgent.SetDestination(target.position);
     }
     void AttackTarget()
     {
-        GetComponent<Animator>().SetBool("attack", true);
+        enemyAnimator.SetBool("attack", true);
     }
     void TurnTowardsTarget()
     {

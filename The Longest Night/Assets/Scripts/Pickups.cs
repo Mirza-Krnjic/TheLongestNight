@@ -125,7 +125,7 @@ public class Pickups : MonoBehaviour
                             audioPlayer.clip = batteryPickupSound;
                             audioPlayer.Play();
                             pickedUp = true;
-                             pickupMessage.gameObject.SetActive(false);
+                            pickupMessage.gameObject.SetActive(false);
                         }
                     }
                     break;
@@ -141,7 +141,7 @@ public class Pickups : MonoBehaviour
                             audioPlayer.clip = batteryPickupSound;
                             audioPlayer.Play();
                             pickedUp = true;
-                             pickupMessage.gameObject.SetActive(false);
+                            pickupMessage.gameObject.SetActive(false);
                         }
                     }
                     break;
@@ -156,6 +156,7 @@ public class Pickups : MonoBehaviour
                         audioPlayer.clip = batteryPickupSound;
                         audioPlayer.Play();
                         pickedUp = true;
+                        pickupMessage.gameObject.SetActive(false);
                     }
                     break;
                 }
@@ -169,6 +170,7 @@ public class Pickups : MonoBehaviour
                         audioPlayer.clip = batteryPickupSound;
                         audioPlayer.Play();
                         pickedUp = true;
+                        pickupMessage.gameObject.SetActive(false);
                     }
                     break;
                 }
@@ -182,6 +184,7 @@ public class Pickups : MonoBehaviour
                         audioPlayer.clip = batteryPickupSound;
                         audioPlayer.Play();
                         pickedUp = true;
+                        pickupMessage.gameObject.SetActive(false);
                     }
                     break;
                 }
@@ -195,6 +198,7 @@ public class Pickups : MonoBehaviour
                         audioPlayer.clip = batteryPickupSound;
                         audioPlayer.Play();
                         pickedUp = true;
+                        pickupMessage.gameObject.SetActive(false);
                     }
                     break;
                 }

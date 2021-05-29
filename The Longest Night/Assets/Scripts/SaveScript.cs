@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SaveScript : MonoBehaviour
 {
+    [SerializeField] GameObject[] enemyModels;
+    public static GameObject[] enemies;
+
     public static int PlayerHealth = 100;
     public static bool HealthChanged = false;
     public static float batteryPower = 1.0f;
@@ -40,9 +43,10 @@ public class SaveScript : MonoBehaviour
 
     private void Awake()
     {
+        enemies = enemyModels;
         _zombieSounds = zombieSounds;
         soundsAryZize = zombieSounds.Length;
-        
+
         targetPlayer = playerLocation;
         hurtAnim = EnemyhurtAnim;
         hitSound = EnemyHitSound;
