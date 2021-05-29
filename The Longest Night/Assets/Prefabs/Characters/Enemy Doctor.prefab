@@ -860,8 +860,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6236028277683197984}
-  - component: {fileID: 975074684}
-  - component: {fileID: 975074683}
   m_Layer: 8
   m_Name: RightHand
   m_TagString: Untagged
@@ -888,34 +886,6 @@ Transform:
   m_Father: {fileID: 638131326947875286}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &975074684
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499905408673427024}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3127552, y: 0.07792518, z: 0.08472341}
-  m_Center: {x: -0.0035852962, y: -0.011839071, z: 0.019149931}
---- !u!114 &975074683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499905408673427024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &2520235551397547958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,8 +1504,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4684867025757346746}
-  - component: {fileID: 1453997720}
-  - component: {fileID: 1453997719}
   m_Layer: 8
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1562,34 +1530,6 @@ Transform:
   m_Father: {fileID: 5761282163292509757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1453997720
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894446950551722776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13349143, y: 0.05871976, z: 0.055406094}
-  m_Center: {x: -0.10023099, y: 0.00016295385, z: 0.00859881}
---- !u!114 &1453997719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894446950551722776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 30
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &3924707579797272805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,7 +3904,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3984,10 +3924,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 9
+  myPlayer: {fileID: 0}
+  hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
+  biting: 0
 --- !u!114 &1887784921573210912
 MonoBehaviour:
   m_ObjectHideFlags: 0

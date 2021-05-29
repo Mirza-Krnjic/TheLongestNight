@@ -3,8 +3,11 @@ using UnityEngine.AI; //this one u have to include
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] int damage = 9;
+    [SerializeField] AudioSource myPlayer;
+    [SerializeField] Animator hurtAnim;
     [SerializeField] Transform target;
-    [SerializeField] float chaseRange = 5f;
+    [SerializeField] float chaseRange = 13f;
     [SerializeField] float turnSpeed = 5f;
     public AudioSource enemyAudioSource;
 
@@ -17,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Collider[] collidersToDisable;
     private int aryIndex = -1;
     private Animator enemyAnimator;
+
 
     [SerializeField] bool biting = false;
 
@@ -38,6 +42,12 @@ public class EnemyAI : MonoBehaviour
         enemyAudioSource.playOnAwake = true;
 
         collidersToDisable = new Collider[2];
+    }
+
+    private void Start()
+    {
+        hurtAnim = SaveScript.hurtAnim;
+        myPlayer = SaveScript.hitSound;
     }
 
     // Update is called once per frame
@@ -108,13 +118,14 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 
-    public void disableColiders()
+
+
+    public void takeDamage()
     {
-        enemyAudioSource.enabled = false;
-        foreach (var item in collidersToDisable)
-        {
-            item.enabled = false;
-        }
+        hurtAnim.SetTrigger("Hurt");
+        SaveScript.PlayerHealth -= damage;
+        SaveScript.HealthChanged = true;
+        myPlayer.Play();
     }
 
     public void populateColiderAry(BoxCollider col)
@@ -122,6 +133,9 @@ public class EnemyAI : MonoBehaviour
         collidersToDisable[++aryIndex] = col;
     }
 
-
+    public void SetChaseRange(int givenChaseRange)
+    {
+        chaseRange = givenChaseRange;
+    }
 
 }

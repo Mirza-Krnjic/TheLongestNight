@@ -132,8 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8347042106188268395}
-  - component: {fileID: 2998826574957818829}
-  - component: {fileID: 4656479740732640034}
   m_Layer: 8
   m_Name: LeftHand
   m_TagString: Untagged
@@ -160,34 +158,6 @@ Transform:
   m_Father: {fileID: 9016616251379257068}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2998826574957818829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350860693447934921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 80
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
---- !u!65 &4656479740732640034
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350860693447934921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13349143, y: 0.05871976, z: 0.055406094}
-  m_Center: {x: -0.10023099, y: 0.00016295385, z: 0.00859881}
 --- !u!1 &423947261017516769
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,8 +597,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7232650720270909681}
-  - component: {fileID: 2998826576295562413}
-  - component: {fileID: 2998826576295562412}
   m_Layer: 8
   m_Name: RightHand
   m_TagString: Untagged
@@ -655,34 +623,6 @@ Transform:
   m_Father: {fileID: 4183353811972604167}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2998826576295562413
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181114728021177985}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3127552, y: 0.07792518, z: 0.08472341}
-  m_Center: {x: -0.0035852962, y: -0.011839071, z: 0.019149931}
---- !u!114 &2998826576295562412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181114728021177985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &1217869513600716534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,7 +2287,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7964351876827943134}
-  m_LocalRotation: {x: -0, y: 0.7169844, z: -0, w: -0.6970893}
+  m_LocalRotation: {x: 0, y: 0.7169837, z: -0, w: -0.69709}
   m_LocalPosition: {x: 508.14252, y: 18.327757, z: 184.73325}
   m_LocalScale: {x: 1.12863, y: 1.12863, z: 1.12863}
   m_Children:
@@ -2430,10 +2370,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 9
+  myPlayer: {fileID: 0}
+  hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
+  biting: 0
 --- !u!114 &961746290882603529
 MonoBehaviour:
   m_ObjectHideFlags: 0

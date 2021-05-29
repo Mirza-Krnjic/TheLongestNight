@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float hitPoints = 100f;
     bool isDead = false;
     EnemyAI enemyAIref;
+    private AudioSource enemyAudioSource;
 
     public bool IsDead()
     {
@@ -17,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         enemyAIref = GetComponentInParent<EnemyAI>();
-
+        enemyAudioSource = GetComponentInParent<AudioSource>();
     }
 
     public void TakeDamage(float damage)
@@ -35,17 +36,16 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
 
-        enemyAIref.disableColiders();
         enemyAIref.enabled = false;
-       
+        enemyAudioSource.enabled = false;
 
         GetComponentInParent<NavMeshAgent>().enabled = false;
         GetComponentInParent<CapsuleCollider>().enabled = false;
 
 
-        
+
         GetComponentInParent<Animator>().SetTrigger("die");
-        
+
         SaveScript.enemiesOnScreen--;
         //SaveScript.enemiesCurrent++; later will trigget final scene (final boss)
     }

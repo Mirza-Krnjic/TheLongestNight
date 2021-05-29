@@ -1512,9 +1512,9 @@ GameObject:
   - component: {fileID: 6861848414493180320}
   - component: {fileID: 6861848414493180327}
   - component: {fileID: 6861848414493180326}
-  - component: {fileID: 6861848414493180324}
   - component: {fileID: 6861848414493180331}
   - component: {fileID: 6891618297029119963}
+  - component: {fileID: -91027840869321315}
   m_Layer: 8
   m_Name: Zombie1 (EDITED)
   m_TagString: Untagged
@@ -1624,22 +1624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
---- !u!114 &6861848414493180324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5954209368244976812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  chaseRange: 13
-  turnSpeed: 5
-  enemyAudioSource: {fileID: 0}
 --- !u!114 &6861848414493180331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,6 +1732,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-91027840869321315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954209368244976812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 9
+  myPlayer: {fileID: 0}
+  hurtAnim: {fileID: 0}
+  target: {fileID: 0}
+  chaseRange: 600
+  turnSpeed: 5
+  enemyAudioSource: {fileID: 0}
+  biting: 0
 --- !u!1 &6246804072210179477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,8 +2068,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314289737909457982}
-  - component: {fileID: 6861848415971986772}
-  - component: {fileID: 6861848415971986779}
   m_Layer: 8
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
@@ -2092,34 +2094,6 @@ Transform:
   m_Father: {fileID: 4086929134648065796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 18.303799, y: 1.6229014, z: 29.326344}
---- !u!65 &6861848415971986772
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918005372112128049}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.103376046, y: 0.23196031, z: 0.08472341}
-  m_Center: {x: -0.0013205245, y: 0.06517849, z: 0.019149885}
---- !u!114 &6861848415971986779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918005372112128049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &7007954143360163360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,8 +2749,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5176145343715065397}
-  - component: {fileID: 6861848414912324246}
-  - component: {fileID: 6861848414912324247}
   m_Layer: 8
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
@@ -2803,34 +2775,6 @@ Transform:
   m_Father: {fileID: 9075789982276662357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -3.6658077, y: 0.92457354, z: -9.284754}
---- !u!65 &6861848414912324246
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8921438788751748348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.103376046, y: 0.23196031, z: 0.08472341}
-  m_Center: {x: -0.0013205245, y: 0.06517849, z: 0.019149885}
---- !u!114 &6861848414912324247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8921438788751748348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &9030216964736287579
 GameObject:
   m_ObjectHideFlags: 0

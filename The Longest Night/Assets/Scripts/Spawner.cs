@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField] bool longDistanceRunner = false;
+
     private GameObject EnemySpawn1;
     private GameObject EnemySpawn2;
     private GameObject EnemySpawn3;
 
-    [SerializeField] GameObject[] enemies;
 
     [SerializeField] Transform SpawnPoint1;
     [SerializeField] Transform SpawnPoint2;
@@ -69,5 +70,12 @@ public class Spawner : MonoBehaviour
         EnemySpawn1 = SaveScript.enemies[Random.Range(0, SaveScript.enemies.Length - 1)];
         EnemySpawn2 = SaveScript.enemies[Random.Range(0, SaveScript.enemies.Length - 1)];
         EnemySpawn3 = SaveScript.enemies[Random.Range(0, SaveScript.enemies.Length - 1)];
+
+        if (longDistanceRunner)
+        {
+            EnemySpawn1.AddComponent<EnemyAI>().SetChaseRange(600);
+            EnemySpawn2.AddComponent<EnemyAI>().SetChaseRange(600);
+            EnemySpawn3.AddComponent<EnemyAI>().SetChaseRange(600);
+        }
     }
 }
