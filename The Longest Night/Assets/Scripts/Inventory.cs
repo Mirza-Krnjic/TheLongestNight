@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject InventoryPanel;
 
-
+    [SerializeField] AudioListener myAudioListener;
     //WEAPON INVENTORY
     private int numberOfWeapons; //can potentialy add to med, ammom, btry
     private GameObject[] weaponSlots;
@@ -74,10 +74,10 @@ public class Inventory : MonoBehaviour
         {
             if (optionsActive == false)//menu on
             {
-
+                Time.timeScale = 0f;
+                myAudioListener.enabled = false;
                 FPS_UI.gameObject.SetActive(false);
-                //weapons.gameObject.SetActive(false);
-                //Time.timeScale = 0f;
+
                 optionsMenu.gameObject.SetActive(true);
                 optionsActive = true;
                 Cursor.visible = true;
@@ -86,6 +86,8 @@ public class Inventory : MonoBehaviour
             }
             else if (optionsActive == true)//menu off
             {
+                myAudioListener.enabled = true;
+                Time.timeScale = 1f;
                 optionsMenu.gameObject.SetActive(false);
                 optionsActive = false;
                 Cursor.visible = false;
@@ -95,18 +97,20 @@ public class Inventory : MonoBehaviour
                 playerAudioListener.enabled = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Q))
         {
             if (inventoryPanelIsActive == false)
             {
-                //Time.timeScale = 0f;
+                myAudioListener.enabled = false;
+                Time.timeScale = 0f;
                 inventoryPanelIsActive = true;
                 InventoryPanel.gameObject.SetActive(true);
                 Cursor.visible = true;
             }
             else if (inventoryPanelIsActive == true)
             {
-                //Time.timeScale = 1f;
+                myAudioListener.enabled = true;
+                Time.timeScale = 1f;
                 inventoryPanelIsActive = false;
                 InventoryPanel.gameObject.SetActive(false);
                 Cursor.visible = false;

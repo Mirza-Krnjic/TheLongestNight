@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     //BOOLs
     bool shooting, reloading;
-    bool isAimed;
+    public static bool isAimed;
     public bool readyToShoot = true;
     public bool canReload = true;
 

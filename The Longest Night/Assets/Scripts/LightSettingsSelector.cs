@@ -31,7 +31,7 @@ public class LightSettingsSelector : MonoBehaviour
                     SaveScript.nightVisionIsOn = false;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 if (spotlightIsActive == false)
                 {
