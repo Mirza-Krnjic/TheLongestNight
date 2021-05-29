@@ -395,7 +395,7 @@ public class FirstPersonAIO : MonoBehaviour {
         #region Movement Settings - FixedUpdate
         
         if(useStamina){
-            isSprinting = Input.GetKey(sprintKey) && Input.GetKey(KeyCode.W) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
+            isSprinting = Input.GetKey(sprintKey) && Input.GetKey(KeyCode.W) && (Weapon.isAimed == false) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
             if(isSprinting){
                 staminaInternal -= (staminaDepletionSpeed*2)*Time.deltaTime;
                 if(drawStaminaMeter){

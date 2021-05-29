@@ -460,9 +460,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 9
+  myPlayer: {fileID: 0}
+  hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
   turnSpeed: 5
+  enemyAudioSource: {fileID: 0}
+  leftArmCollier: {fileID: 0}
+  rightArmCollier: {fileID: 0}
+  biting: 0
 --- !u!82 &6298619593410332726
 AudioSource:
   m_ObjectHideFlags: 0
@@ -980,8 +987,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756739687583849386}
-  - component: {fileID: 6520303298534526131}
-  - component: {fileID: 6520303298534526140}
   m_Layer: 8
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
@@ -1008,34 +1013,6 @@ Transform:
   m_Father: {fileID: 2470157682037723594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6520303298534526131
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628761859261057379}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.103376046, y: 0.23196031, z: 0.08472341}
-  m_Center: {x: -0.0013205245, y: 0.06517849, z: 0.019149885}
---- !u!114 &6520303298534526140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628761859261057379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &2724258687772865211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1758,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6622817502018498977}
-  - component: {fileID: 6520303298738078339}
-  - component: {fileID: 6520303298738078348}
   m_Layer: 8
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
@@ -1809,34 +1784,6 @@ Transform:
   m_Father: {fileID: 7423020499620190875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6520303298738078339
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590817904636030382}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.103376046, y: 0.23196031, z: 0.08472341}
-  m_Center: {x: -0.0013205245, y: 0.06517849, z: 0.019149885}
---- !u!114 &6520303298738078348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590817904636030382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd677fc9fec49445a11dcd31becbe21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HenemyWeaponDamage: 1
-  hurtAnim: {fileID: 0}
-  myPlayer: {fileID: 0}
 --- !u!1 &4635264038935919069
 GameObject:
   m_ObjectHideFlags: 0
