@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SaveScript : MonoBehaviour
 {
+    [SerializeField] GameObject readMeText;
+    public static GameObject _readMeText;
     [SerializeField] GameObject hurtImageGameObject;
     [SerializeField] GameObject[] enemyModels;
     public static GameObject[] enemies;
@@ -44,6 +46,8 @@ public class SaveScript : MonoBehaviour
 
     private void Awake()
     {
+        _readMeText = readMeText;
+
         hurtImageGameObject.gameObject.SetActive(true);
         enemies = enemyModels;
         _zombieSounds = zombieSounds;
