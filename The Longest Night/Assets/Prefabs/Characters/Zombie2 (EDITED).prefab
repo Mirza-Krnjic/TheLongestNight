@@ -123,7 +123,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
-  chaseRange: 0
+  chaseRange: 13
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0

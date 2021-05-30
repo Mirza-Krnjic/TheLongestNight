@@ -45,6 +45,7 @@ public class Inventory : MonoBehaviour
     bool inventoryPanelIsActive = false;
     bool optionsActive = false;
 
+
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject weapons;
     [SerializeField] GameObject FPS_UI;
@@ -74,6 +75,8 @@ public class Inventory : MonoBehaviour
         {
             if (optionsActive == false)//menu on
             {
+
+                InventoryPanel.gameObject.SetActive(false);
                 Time.timeScale = 0f;
                 myAudioListener.enabled = false;
                 FPS_UI.gameObject.SetActive(false);
@@ -101,6 +104,7 @@ public class Inventory : MonoBehaviour
         {
             if (inventoryPanelIsActive == false)
             {
+
                 myAudioListener.enabled = false;
                 Time.timeScale = 0f;
                 inventoryPanelIsActive = true;

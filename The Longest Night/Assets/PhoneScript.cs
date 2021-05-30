@@ -7,12 +7,16 @@ public class PhoneScript : MonoBehaviour
 {
     [SerializeField] GameObject phoneText;
     [SerializeField] GameObject pressText;
+    [SerializeField] GameObject inventoryToDisable;
     private bool displayText = false;
     private bool inRange = false;
+    private bool phoneCanvasIsEnabled = false;
     // Start is called before the first frame update
+
 
     void Start()
     {
+        inventoryToDisable = SaveScript._inventory;
         pressText = SaveScript._readMeText;
         phoneText.gameObject.SetActive(false);
     }
@@ -25,14 +29,22 @@ public class PhoneScript : MonoBehaviour
             {
                 if (displayText)
                 {
+                    phoneCanvasIsEnabled = false;
                     phoneText.gameObject.SetActive(false);
                     displayText = false;
                 }
-                else
+                else //turn text on
                 {
+                    phoneCanvasIsEnabled = true;
+                    inventoryToDisable.gameObject.SetActive(false);
+                    pressText.gameObject.SetActive(false);
                     displayText = true;
                     phoneText.gameObject.SetActive(true);
                 }
+            }
+            if (Input.GetKeyDown(KeyCode.Q) ||Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.O))
+            {
+                _disablePhoneCanvas();
             }
         }
     }
@@ -48,5 +60,13 @@ public class PhoneScript : MonoBehaviour
         pressText.gameObject.SetActive(false);
         phoneText.gameObject.SetActive(false);
         inRange = false;
+    }
+
+    public void _disablePhoneCanvas()
+    {
+        if(phoneCanvasIsEnabled)
+            {
+                phoneText.gameObject.SetActive(false);
+            }
     }
 }

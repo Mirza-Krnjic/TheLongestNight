@@ -1581,8 +1581,6 @@ MonoBehaviour:
   chaseRange: 13
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
-  leftArmCollier: {fileID: 0}
-  rightArmCollier: {fileID: 0}
   biting: 0
 --- !u!82 &1340146810332766599
 AudioSource:

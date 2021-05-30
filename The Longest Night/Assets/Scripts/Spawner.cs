@@ -73,9 +73,9 @@ public class Spawner : MonoBehaviour
 
         if (longDistanceRunner)
         {
-            EnemySpawn1.AddComponent<EnemyAI>().SetChaseRange(600);
-            EnemySpawn2.AddComponent<EnemyAI>().SetChaseRange(600);
-            EnemySpawn3.AddComponent<EnemyAI>().SetChaseRange(600);
+            EnemySpawn1.GetComponent<EnemyAI>().SetChaseRange(600);
+            EnemySpawn2.GetComponent<EnemyAI>().SetChaseRange(600);
+            EnemySpawn3.GetComponent<EnemyAI>().SetChaseRange(600);
         }
     }
 }

@@ -383,3 +383,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phoneText: {fileID: 409025042}
   pressText: {fileID: 0}
+  inventoryToDisable: {fileID: 0}
+  phoneCanvas: {fileID: 0}
