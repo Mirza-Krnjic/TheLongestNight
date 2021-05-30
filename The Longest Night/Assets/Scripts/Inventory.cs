@@ -100,7 +100,7 @@ public class Inventory : MonoBehaviour
                 playerAudioListener.enabled = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Q))
+        if ((Input.GetKeyDown(KeyCode.I) && optionsActive == false) || (Input.GetKeyDown(KeyCode.Q) && optionsActive == false))
         {
             if (inventoryPanelIsActive == false)
             {
