@@ -201,6 +201,9 @@ public class Weapon : MonoBehaviour
         Destroy(impactEffect, .1f);
     }
 
+    //Instantiate(hitImpactEffect)
+    //Destroy(impactEffect, .1f);
+
     private void CreateImpactBlood(RaycastHit hit)
     {
         GameObject impactEffect = Instantiate(hitImpactBloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
