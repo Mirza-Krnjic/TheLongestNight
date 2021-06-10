@@ -1,0 +1,19 @@
+For best results ensure that post processing version 2 is installed from the Package Manager
+
+Ensure that the camera is set onto a layer called: PostProcessing
+
+----------------------------------------------------------------------------------------------
+
+All models were created using Adobe Fuse
+
+All animations have come from Adobe Mixamo
+
+You are free to use these models in your own personal and commercial games
+
+You are not allowed to re-sell the characters on their own
+
+-----------------------------------------------------------------------------------------------
+
+Thanks for installing these characters. Visit my website:
+
+http://creativemediatutorials.wordpress.com
