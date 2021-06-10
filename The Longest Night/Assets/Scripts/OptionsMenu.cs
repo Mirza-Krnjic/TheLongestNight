@@ -11,6 +11,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] GameObject VisualPanel;
     [SerializeField] GameObject SoundPanel;
     [SerializeField] GameObject HelpPanel;
+    [SerializeField] GameObject TipsPanel;
     [SerializeField] GameObject DifficultyPanel;
     [SerializeField] GameObject BackToMenuPanel;
     public Slider LightSlider;
@@ -92,8 +93,8 @@ public class OptionsMenu : MonoBehaviour
             }
             else if (FPSOn == false)
             {
-               // myPPLayer.fog.enabled = true;
-               FPSdisplay.gameObject.SetActive(true);
+                // myPPLayer.fog.enabled = true;
+                FPSdisplay.gameObject.SetActive(true);
                 FPSOn = true;
             }
         }
@@ -101,8 +102,8 @@ public class OptionsMenu : MonoBehaviour
         {
             if (FPSOn)
             {
-               // myPPLayer.fog.enabled = false;
-               FPSdisplay.gameObject.SetActive(false);
+                // myPPLayer.fog.enabled = false;
+                FPSdisplay.gameObject.SetActive(false);
                 FPSOn = false;
             }
             else if (FPSOn == false)
@@ -203,6 +204,7 @@ public class OptionsMenu : MonoBehaviour
         VisualPanel.gameObject.SetActive(true);
         SoundPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(false);
+        TipsPanel.gameObject.SetActive(false);
         DifficultyPanel.gameObject.SetActive(false);
         BackToMenuPanel.gameObject.SetActive(false);
     }
@@ -212,6 +214,7 @@ public class OptionsMenu : MonoBehaviour
         VisualPanel.gameObject.SetActive(false);
         SoundPanel.gameObject.SetActive(true);
         HelpPanel.gameObject.SetActive(false);
+        TipsPanel.gameObject.SetActive(false);
         DifficultyPanel.gameObject.SetActive(false);
         BackToMenuPanel.gameObject.SetActive(false);
     }
@@ -221,6 +224,17 @@ public class OptionsMenu : MonoBehaviour
         VisualPanel.gameObject.SetActive(false);
         SoundPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(true);
+        TipsPanel.gameObject.SetActive(false);
+        DifficultyPanel.gameObject.SetActive(false);
+        BackToMenuPanel.gameObject.SetActive(false);
+    }
+
+    public void Tips()
+    {
+        VisualPanel.gameObject.SetActive(false);
+        SoundPanel.gameObject.SetActive(false);
+        HelpPanel.gameObject.SetActive(false);
+        TipsPanel.gameObject.SetActive(true);
         DifficultyPanel.gameObject.SetActive(false);
         BackToMenuPanel.gameObject.SetActive(false);
     }
@@ -230,6 +244,7 @@ public class OptionsMenu : MonoBehaviour
         VisualPanel.gameObject.SetActive(false);
         SoundPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(false);
+        TipsPanel.gameObject.SetActive(false);
         DifficultyPanel.gameObject.SetActive(true);
         BackToMenuPanel.gameObject.SetActive(false);
     }
@@ -239,6 +254,7 @@ public class OptionsMenu : MonoBehaviour
         VisualPanel.gameObject.SetActive(false);
         SoundPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(false);
+        TipsPanel.gameObject.SetActive(false);
         DifficultyPanel.gameObject.SetActive(false);
         BackToMenuPanel.gameObject.SetActive(true);
     }

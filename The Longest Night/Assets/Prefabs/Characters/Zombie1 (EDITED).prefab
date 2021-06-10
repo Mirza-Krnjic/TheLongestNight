@@ -1514,7 +1514,7 @@ GameObject:
   - component: {fileID: 6861848414493180326}
   - component: {fileID: 6861848414493180331}
   - component: {fileID: 6891618297029119963}
-  - component: {fileID: -91027840869321315}
+  - component: {fileID: -4437001512316281676}
   m_Layer: 8
   m_Name: Zombie1 (EDITED)
   m_TagString: Untagged
@@ -1732,7 +1732,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-91027840869321315
+--- !u!114 &-4437001512316281676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
-  chaseRange: 600
+  chaseRange: 13
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
