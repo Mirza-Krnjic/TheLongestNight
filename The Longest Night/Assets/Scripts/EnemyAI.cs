@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Animator hurtAnim;
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 13f;
+    [SerializeField] float attackRange = 4f;
     [SerializeField] float turnSpeed = 5f;
     public AudioSource enemyAudioSource;
 
@@ -83,7 +84,9 @@ public class EnemyAI : MonoBehaviour
     }
     void EngageTarget() // chase and attack
     {
-        TurnTowardsTarget();
+        if (distanceToTarget <= attackRange)
+            TurnTowardsTarget();
+
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
@@ -116,6 +119,8 @@ public class EnemyAI : MonoBehaviour
         // Display the explosion radius when selected
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
 
