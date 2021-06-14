@@ -5,9 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+ using UnityEngine.Rendering;
+ 
 
 public class OptionsMenu : MonoBehaviour
 {
+     [SerializeField] PostProcessProfile postProcessProfile;
     [SerializeField] GameObject VisualPanel;
     [SerializeField] GameObject SoundPanel;
     [SerializeField] GameObject HelpPanel;
@@ -41,6 +44,8 @@ public class OptionsMenu : MonoBehaviour
     {
         //Cursor.visible = true;
         //Time.timeScale = 0;
+
+         
 
         VisualPanel.gameObject.SetActive(true);
         SoundPanel.gameObject.SetActive(false);
@@ -225,7 +230,9 @@ public class OptionsMenu : MonoBehaviour
 
     public void LightValue()
     {
-        RenderSettings.ambientIntensity = LightSlider.value;
+        //RenderSettings.ambientIntensity = LightSlider.value;
+        
+        postProcessProfile.GetSetting<ColorGrading>().postExposure.value = LightSlider.value;
     }
 
     public void Visuals()
