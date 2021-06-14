@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c164d28134de0314fa5839362dfa046f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3b5e89f1f7937f4f92cfd8a4e2230a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1710,11 +1710,11 @@ PrefabInstance:
     - target: {fileID: 114159472294568906, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5529553a85926084d9e92cb47b0cd231, type: 3}
+      objectReference: {fileID: 21300000, guid: 0ebccc1de5b0d3c46b58c94676b22a46, type: 3}
     - target: {fileID: 114406594192039836, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 491f2f3f627de1b48927d12eac4bc8a7, type: 3}
+      objectReference: {fileID: 21300000, guid: 715e53e835f100541ac8f2d1762f0bc5, type: 3}
     - target: {fileID: 114518684623157496, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: menuScreen
       value: 
@@ -1726,7 +1726,7 @@ PrefabInstance:
     - target: {fileID: 114551567372327536, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: edabc2d2ac6a46c49ac015c143ab2667, type: 3}
+      objectReference: {fileID: 21300000, guid: b25a76687d76cee41909d4fa973d128e, type: 3}
     - target: {fileID: 114561025400157228, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1746,7 +1746,7 @@ PrefabInstance:
     - target: {fileID: 114870788342820432, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: de8fe74d8f6f79145a540f552452899d, type: 3}
+      objectReference: {fileID: 21300000, guid: a806ece89320b064a949e9d3038ed372, type: 3}
     - target: {fileID: 224457266930642052, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.41214
