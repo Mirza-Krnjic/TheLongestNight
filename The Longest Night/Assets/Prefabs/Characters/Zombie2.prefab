@@ -1792,7 +1792,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f309396b8593b63478b0febb95cd99a7, type: 2}
+  - {fileID: 2100000, guid: d464f2deff9bd5e46abf4e1a7164233f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2441,10 +2441,9 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
-  leftArmCollier: {fileID: 0}
-  rightArmCollier: {fileID: 0}
   biting: 0
 --- !u!136 &788354738311968456
 CapsuleCollider:
