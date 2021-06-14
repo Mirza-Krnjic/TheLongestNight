@@ -1646,8 +1646,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4194442181597726642}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00013995386, y: 0.0390194, z: 0.030024353}
+  m_LocalRotation: {x: 0.14261588, y: 7.632783e-17, z: 2.1912675e-15, w: 0.98977816}
+  m_LocalPosition: {x: -0.00013990684, y: 0.039019335, z: 0.03002435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1122031591787519791}
@@ -1655,7 +1655,7 @@ Transform:
   - {fileID: 2295509344616201745}
   m_Father: {fileID: 7642888737599580120}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.398, y: 0, z: 0}
 --- !u!1 &4229938893749765715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,6 +3929,7 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
@@ -4184,7 +4185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9206555952599309505}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.034097195, y: 0.07953107, z: 0.09293808}
+  m_LocalPosition: {x: 0.0341, y: 0.0795, z: -0.0164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7642888737599580120}

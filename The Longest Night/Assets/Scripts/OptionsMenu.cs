@@ -5,9 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+ using UnityEngine.Rendering;
+ 
 
 public class OptionsMenu : MonoBehaviour
 {
+     [SerializeField] PostProcessProfile postProcessProfile;
     [SerializeField] GameObject VisualPanel;
     [SerializeField] GameObject SoundPanel;
     [SerializeField] GameObject HelpPanel;
@@ -42,11 +45,38 @@ public class OptionsMenu : MonoBehaviour
         //Cursor.visible = true;
         //Time.timeScale = 0;
 
+         
+
         VisualPanel.gameObject.SetActive(true);
         SoundPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(false);
         DifficultyPanel.gameObject.SetActive(false);
         BackToMenuPanel.gameObject.SetActive(false);
+
+
+        if (PlayerPrefs.HasKey("AAstate"))
+        {
+            int aa = PlayerPrefs.GetInt("AAstate");
+            switch (aa)
+            {
+                case 1:
+                    toggleAAoFF.isOn = true;
+                    antiAliasingOFF();
+                    break;
+                case 2:
+                    toggleFXAA.isOn = true;
+                    antiAliasingFXAA();
+                    break;
+                case 3:
+                    toggleSMAA.isOn = true;
+                    antiAliasingSMAA();
+                    break;
+                case 4:
+                    toggleTAA.isOn = true;
+                    antiAliasingTAA();
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -135,6 +165,7 @@ public class OptionsMenu : MonoBehaviour
                 toggleSMAA.isOn = false;
                 toggleTAA.isOn = false;
                 antiState = 1;
+                PlayerPrefs.SetInt("AAstate", 1);
             }
         }
     }
@@ -150,6 +181,7 @@ public class OptionsMenu : MonoBehaviour
                 toggleSMAA.isOn = false;
                 toggleTAA.isOn = false;
                 antiState = 2;
+                PlayerPrefs.SetInt("AAstate", 2);
             }
         }
     }
@@ -170,6 +202,7 @@ public class OptionsMenu : MonoBehaviour
                 toggleFXAA.isOn = false;
                 toggleTAA.isOn = false;
                 antiState = 3;
+                PlayerPrefs.SetInt("AAstate", 3);
             }
         }
     }
@@ -190,13 +223,16 @@ public class OptionsMenu : MonoBehaviour
                 toggleFXAA.isOn = false;
                 toggleSMAA.isOn = false;
                 antiState = 4;
+                PlayerPrefs.SetInt("AAstate", 4);
             }
         }
     }
 
     public void LightValue()
     {
-        RenderSettings.ambientIntensity = LightSlider.value;
+        //RenderSettings.ambientIntensity = LightSlider.value;
+        
+        postProcessProfile.GetSetting<ColorGrading>().postExposure.value = LightSlider.value;
     }
 
     public void Visuals()

@@ -167,11 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8500181cd660bc4fbbb38cc945a132d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
+  damage: 14
   myPlayer: {fileID: 0}
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
@@ -425,6 +426,38 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000001575012
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11272499
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.016249504
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.90201694
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.4317006
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 2.3321053e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1.4790008e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 51.151
+      objectReference: {fileID: 0}
     - target: {fileID: -7815209654676278400, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -492,6 +525,38 @@ PrefabInstance:
     - target: {fileID: -4341457848597693527, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000030656247
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15087578
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.062927574
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99669087
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08128593
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1.13739584e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -5.4310397e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4161440058287150274, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 9.325
       objectReference: {fileID: 0}
     - target: {fileID: -3803930360621070614, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
       propertyPath: m_Layer
