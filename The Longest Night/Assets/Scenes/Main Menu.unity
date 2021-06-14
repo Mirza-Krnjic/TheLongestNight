@@ -687,7 +687,8 @@ MonoBehaviour:
     Kozhemyakin \nStandard Unity Assets\nKey by eucocker (sketchfab) \nKey by spooneystone
     (sketchfab) \nDoor key by SusanKink (sketchfab) \nKey by jomans (sketchfab) \nFirst
     Person All-in-One by Aedan Graves \nFlooded grounds by Sandro T\nAnimated zombies
-    made by Pete Jepson \nAnimations/zombie models taken from Adobe Mixamo\n\n"
+    made by Pete Jepson \nAnimations/zombie models taken from Adobe Mixamo\nold mobile
+    by shedmon (sketchfab)\n"
 --- !u!222 &635214634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1709,11 +1710,11 @@ PrefabInstance:
     - target: {fileID: 114159472294568906, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b4e0beb748c7b77408cf375c8aa55f09, type: 3}
+      objectReference: {fileID: 21300000, guid: 5529553a85926084d9e92cb47b0cd231, type: 3}
     - target: {fileID: 114406594192039836, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3170cfbb00572e349850ba3746e115b3, type: 3}
+      objectReference: {fileID: 21300000, guid: 491f2f3f627de1b48927d12eac4bc8a7, type: 3}
     - target: {fileID: 114518684623157496, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: menuScreen
       value: 
@@ -1745,7 +1746,7 @@ PrefabInstance:
     - target: {fileID: 114870788342820432, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6441b17f945c544468e071cf96b31303, type: 3}
+      objectReference: {fileID: 21300000, guid: de8fe74d8f6f79145a540f552452899d, type: 3}
     - target: {fileID: 224457266930642052, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.41214
