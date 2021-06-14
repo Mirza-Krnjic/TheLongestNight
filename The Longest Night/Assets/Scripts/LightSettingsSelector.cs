@@ -5,6 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class LightSettingsSelector : MonoBehaviour
 {
+    [SerializeField] GameObject weaponLight;
     [SerializeField] PostProcessVolume ppVolume;
     [SerializeField] PostProcessProfile Standard;
     [SerializeField] PostProcessProfile Nightvision;
@@ -33,17 +34,19 @@ public class LightSettingsSelector : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (spotlightIsActive == false)
+                if (spotlightIsActive == false)//activates spotlight
                 {
                     spotlight.enabled = true;
                     spotlightIsActive = true;
                     SaveScript.flashLightIsOn = true;
+                    weaponLight.gameObject.SetActive(true);
                 }
                 else
                 {
                     spotlight.enabled = false;
                     spotlightIsActive = false;
                     SaveScript.flashLightIsOn = false;
+                    weaponLight.gameObject.SetActive(false);
                 }
             }
         }

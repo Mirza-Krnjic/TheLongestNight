@@ -49,7 +49,25 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
---- !u!114 &-1659642455548325637
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: Nightvision
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: -3967374040482319722}
+  - {fileID: 3003338577364007719}
+  - {fileID: 5578667841433929427}
+  - {fileID: 6383914863326356721}
+  - {fileID: 2369736646438698556}
+--- !u!114 &2369736646438698556
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,19 +91,19 @@ MonoBehaviour:
     value: {r: 0, g: 0, b: 0, a: 1}
   center:
     overrideState: 1
-    value: {x: 0.5, y: 0.5}
+    value: {x: 0.4, y: 0.4}
   intensity:
     overrideState: 1
-    value: 0.55
+    value: 1
   smoothness:
     overrideState: 1
-    value: 0.368
+    value: 1
   roundness:
     overrideState: 1
-    value: 0.974
+    value: 1
   rounded:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   mask:
     overrideState: 0
     value: {fileID: 0}
@@ -93,24 +111,6 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Nightvision
-  m_EditorClassIdentifier: 
-  settings:
-  - {fileID: -3967374040482319722}
-  - {fileID: 3003338577364007719}
-  - {fileID: 5578667841433929427}
-  - {fileID: 6383914863326356721}
-  - {fileID: -1659642455548325637}
 --- !u!114 &3003338577364007719
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -217,7 +217,7 @@ MonoBehaviour:
     value: -80
   colorFilter:
     overrideState: 1
-    value: {r: 0.5568628, g: 0.63529414, b: 0.91764706, a: 1}
+    value: {r: 0, g: 1, b: 0, a: 1}
   hueShift:
     overrideState: 1
     value: -38.66
@@ -229,7 +229,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0
+    value: 3.5
   contrast:
     overrideState: 1
     value: -9.43
@@ -1487,13 +1487,13 @@ MonoBehaviour:
     value: 1
   colored:
     overrideState: 1
-    value: 1
+    value: 0
   intensity:
     overrideState: 1
-    value: 0.22
+    value: 1
   size:
     overrideState: 1
-    value: 1.24
+    value: 3
   lumContrib:
     overrideState: 1
     value: 1
