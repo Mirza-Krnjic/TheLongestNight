@@ -2340,6 +2340,7 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
@@ -2372,7 +2373,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.01

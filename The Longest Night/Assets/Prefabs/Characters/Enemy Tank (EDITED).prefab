@@ -117,13 +117,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49
-  m_Speed: 3.8
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.01
@@ -146,6 +146,7 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
@@ -341,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2659834f7ff93c84fb3b4fabe212f505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 100
+  hitPoints: 400
 --- !u!1001 &4315547868746702925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,6 +425,26 @@ PrefabInstance:
     - target: {fileID: -7883749328917080035, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8703767
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49238658
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -4.589394e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901163
+      objectReference: {fileID: 0}
+    - target: {fileID: -7861831855079945968, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 58.995
       objectReference: {fileID: 0}
     - target: {fileID: -7815209654676278400, guid: 24dd6c1579297cb418dc828efb62e50b, type: 3}
       propertyPath: m_Layer

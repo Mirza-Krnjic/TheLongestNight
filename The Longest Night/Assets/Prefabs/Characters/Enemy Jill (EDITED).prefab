@@ -141,7 +141,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee464a824a8cc2145817bde86f292d9a, type: 2}
+  - {fileID: 2100000, guid: 50cb152f8c4f9ea4a9d1d251e75199dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4291,7 +4291,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.01
@@ -4314,6 +4314,7 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0

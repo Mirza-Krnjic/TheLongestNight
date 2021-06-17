@@ -1480,6 +1480,7 @@ MonoBehaviour:
   hurtAnim: {fileID: 0}
   target: {fileID: 0}
   chaseRange: 13
+  attackRange: 4
   turnSpeed: 5
   enemyAudioSource: {fileID: 0}
   biting: 0
@@ -1512,7 +1513,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.01
@@ -2579,7 +2580,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4ddc7dd74970f2047af1ad36dfa66006, type: 2}
+  - {fileID: 2100000, guid: 1a9fde82997e687498467b7101306300, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
