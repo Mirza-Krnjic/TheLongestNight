@@ -12,6 +12,10 @@ The Longest Night is a survival horror FPS game meant as a challenge with a focu
 ***Itchio:*** 
 [The Longest Night](https://mirza-krnjic.itch.io/the-longest-night )
 
-![](https://mirzakrnjic.com/images/works/tld2.jpeg)
+![](https://img.itch.zone/aW1hZ2UvMTA4OTMwMi82MjcxMDQ3LnBuZw==/original/R%2FdqQs.png)
 
-![](https://mirzakrnjic.com/images/works/tld3.jpeg)
+![](https://img.itch.zone/aW1hZ2UvMTA4OTMwMi82MjcxMDQ4LnBuZw==/original/iyKq%2B9.png)
+
+![](https://img.itch.zone/aW1hZ2UvMTA4OTMwMi82MjcxMDQ1LnBuZw==/original/2WNJdX.png)
+
+![](https://img.itch.zone/aW1hZ2UvMTA4OTMwMi82Mjk0ODQ3LmpwZw==/original/6fMbFb.jpg)
